@@ -30,37 +30,44 @@ body {
   line-height: 1.6;
   font-size: 22px;
 }
-
 /* ---------- Header & Navbar ---------- */
 header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
   background: var(--header-bg);
-  padding: 10px 40px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* subtle separation from content */
+  padding: 10px 20px;
 }
 
+/* Main title */
 header h1 {
   font-size: 3rem;
   margin-bottom: 5px;
   color: var(--text-header);
 }
 
+/* Subtitle */
 header p {
   font-size: 1rem;
-  margin-bottom: 10px;
   color: var(--text-header);
 }
 
+/* Make nav sticky */
+nav {
+  position: sticky;
+  top: 0; /* sticks to viewport top */
+  background: var(--header-bg); /* hide content behind */
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* optional */
+}
+
+/* Nav links */
 nav a {
-  color: var(--text);
+  display: inline-block; /* required for sticky to behave nicely */
   margin: 0 10px;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s;
   color: var(--text-header);
+  transition: color 0.3s;
 }
 
 nav a:hover {
