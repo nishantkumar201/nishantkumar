@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>Nishant Kumar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header>
+      <h1>Nishant Kumar</h1>
+      <p>
+        Embedded & Biomedical Engineering — Neuroengineering, Wearables, Signal
+        Processing
+      </p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+
+      </nav>
+    </header>
+
+            <!-- <a href="Nishant_Kumar_CV.pdf" target="_blank">CV</a> -->
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a Master’s researcher in Electrical and Computer Engineering at the
+        University of Toronto, working under Dr. Steve Mann. My research focuses
+        on neuroengineering systems that integrate signal processing, embedded
+        computing, and hardware acceleration, with applications in EEG analysis,
+        wearable sensing, and rehabilitation technologies.
+      </p>
+      <p>
+        My current work includes GPU-accelerated adaptive time–frequency
+        methods, embedded EEG data acquisition systems, and assistive robotics.
+      </p>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <h3>Journal & Conference Papers</h3>
+      <ul>
+        <li>
+          <strong
+            >Portable EEG-Based Data Acquisition and Multi-Sensor Integration
+            Using the Muse S Headband</strong
+          ><br />
+          Published: IEEE International Conference on Control, Automation and
+          Diagnosis (ICCAD) 2025.
+          <a
+            href="https://ieeexplore.ieee.org/abstract/document/11099439"
+            target="_blank"
+            >[Link]</a
+          >
+        </li>
+        <li>
+          <strong
+            >MoBorg: Mobility as Cyborg Prosthesis for "Being a Ball" </strong
+          ><br />
+          Published: IEEE Games, Entertainment and Media (GEM) 2025.
+          <a
+            href="https://ieeexplore.ieee.org/abstract/document/11155738"
+            target="_blank"
+            >[Link]</a
+          >
+        </li>
+        <li>
+          <strong
+            >Adaptive Chirplet Transform-Based Sleep State Detection</strong
+          ><br />
+          Published: IEEE International Conference on Consumer Electronics
+          (ICCE) 2025.
+          <em>Best Poster Paper Award</em>
+          <a
+            href="https://ieeexplore.ieee.org/document/10929845"
+            target="_blank"
+            >[Link]</a
+          >
+        </li>
+        <li>
+          <strong>Smart Rollator Walker for Enhanced Mobility</strong><br />
+          Published: IEEE International Conference on Consumer Electronics
+          (ICCE) 2025.
+          <em>Best Session Paper</em>
+          <a
+            href="https://ieeexplore.ieee.org/document/10930079/"
+            target="_blank"
+            >[Link]</a
+          >
+        </li>
+        <li>
+          <strong>XR Waterball for Spinal Rehabilitation</strong></strong
+          ><br />
+          Published: Second International Workshop on Human-centered Sensing, Networking, and Multi-Device Systems (HumanSys), 2024.
+          
+          <a
+            href="http://wearcam.org/XRwaterball_for_spinal_rehab_3698388.3699623.pdf"
+            target="_blank"
+            >[Link]</a
+          >
+        </li>
+      </ul>
+
+      <h3>Accepted / In Press</h3>
+      <ul>
+        <li>
+          <strong
+            >GPU-Accelerated Chirplet Transform: Scalable Runtime Profiling and
+            Analysis</strong
+          ><br />
+          N. Kumar, S. Mann. IEEE ICST 2025. <em>Accepted</em>.
+        </li>
+      </ul>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-card">
+        <h3>Drone Development</h3>
+        <p>
+          Designing and building a custom drone, with a 3D-printed optimized
+          frame and an embedded C++ flight controller featuring real-time sensor
+          fusion and motor control. Work is ongoing to refine sensor integration
+          and flight stability, and a
+          <a href="https://github.com/JaiWillems/nj-sandbox" target="_blank"
+            >public repository</a
+          >
+          is available to track progress.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <h3>GPU-Accelerated Chirplet Transform</h3>
+        <p>
+          Thesis project focused on developing a GPU-accelerated Chirplet
+          Transform optimized for real-time signal processing and analysis. The
+          public repository contains preliminary work based on published and
+          accepted results, while ongoing improvements and optimizations remain
+          part of the current research.
+          <a
+            href="https://github.com/nishantkumar201/GPUChirpletTransform"
+            target="_blank"
+            >View repository</a
+          >.
+        </p>
+      </div>
+      <div class="project-card">
+        <h3>Quantifying Biomechanical Movements</h3>
+        <p>
+          Developed a system to measure ankle and spine movements in 3D using
+          IMU sensors, stereo vision, and human segmentation with YOLO.
+          Real-time data visualization was implemented in Processing, with depth
+          mapping and PCA applied for analyzing movement patterns. The project
+          was completed in 2024 as part of the Mersivity 2024 Symposium, and a
+          <a href="https://github.com/nishantkumar201/IMUSense" target="_blank"
+            >public repository</a
+          >
+          is available for reference.
+        </p>
+      </div>
+
+      <!-- Add more projects here -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        <i class="fas fa-envelope"></i>
+        <a id="email-link"></a>
+      </p>
+
+      <script>
+        const user = "nishant.kumar";
+        const domain = "mail.utoronto.ca";
+        const email = user + "@" + domain;
+        const link = document.getElementById("email-link");
+        link.href = "mailto:" + email;
+        link.textContent = email;
+      </script>
+      <p>
+        <i class="fab fa-linkedin"></i>
+        <a
+          href="https://www.linkedin.com/in/nishant-kumar-091428168"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+      </p>
+      <p>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/nishantkumar201" target="_blank">
+          GitHub
+        </a>
+      </p>
+      <p>
+        <i class="fas fa-graduation-cap"></i>
+        <a
+          href="https://scholar.google.com/citations?user=TtBpot4AAAAJ&hl=en"
+          target="_blank"
+        >
+          Google Scholar
+        </a>
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Nishant Kumar</p>
+    </footer>
+  </body>
+</html>
