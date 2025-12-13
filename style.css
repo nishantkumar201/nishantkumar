@@ -34,7 +34,6 @@ body {
 header {
   background: var(--header-bg);
   text-align: center;
-  padding: 10px 20px;
 }
 
 /* Main title */
