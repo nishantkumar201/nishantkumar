@@ -34,6 +34,7 @@ body {
 header {
   background: var(--header-bg);
   text-align: center;
+  padding: 10px 40px;
 }
 
 /* Main title */
@@ -46,6 +47,7 @@ header h1 {
 /* Subtitle */
 header p {
   font-size: 1rem;
+  margin-bottom: 10px;
   color: var(--text-header);
 }
 
