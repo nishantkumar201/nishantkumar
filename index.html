@@ -194,16 +194,17 @@
       <h2>Contact</h2>
       <p>
         <i class="fas fa-envelope"></i>
-        <a id="email-link"></a>
-      </p>
+        <a id="email-link" href="#">Email</a>
 
       <script>
-        const user = "nishant.kumar";
-        const domain = "mail.utoronto.ca";
-        const email = user + "@" + domain;
-        const link = document.getElementById("email-link");
-        link.href = "mailto:" + email;
-        link.textContent = email;
+        const parts = ["nishant", ".", "kumar", "@", "mail", ".", "utoronto", ".", "ca"];
+        const email = parts.join("");
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const link = document.getElementById("email-link");
+          link.href = "mailto:" + email;
+          link.textContent = "Email";
+        });
       </script>
       <p>
         <i class="fab fa-linkedin"></i>
