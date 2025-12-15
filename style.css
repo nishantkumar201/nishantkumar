@@ -128,20 +128,6 @@ li {
 
 /* ---------- Photos ---------- */
 
-.about-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem; /* space between image and text */
-  margin-bottom: rem;
-}
-
-.profile-photo {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 /* ---------- Project Cards ---------- */
 .project-card {
   background: #e0d8cc;
