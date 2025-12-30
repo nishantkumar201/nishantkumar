@@ -8,7 +8,7 @@
   --text-header: rgb(246, 240, 233);
 
   --header-bg: rgb(26, 60, 90); /* distinct but not too harsh */
-  --footer-bg: #234e4e; /* darker footer for separation */
+  --footer-bg: #0c5e7a; /* darker footer for separation */
   --section-bg: rgb(246, 240, 233); /* subtle section background */
   --maxW: 1100px;
 }
@@ -34,7 +34,7 @@ body {
 header {
   background: var(--header-bg);
   text-align: center;
-  padding: 10px 40px;
+  padding: 10px 10px;
 }
 
 /* Main title */
@@ -154,6 +154,12 @@ li {
 
 .btn:hover {
   background: var(--accent);
+}
+
+/* ---------- Images ---------- */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ---------- Footer ---------- */
