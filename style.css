@@ -13,6 +13,23 @@
   --maxW: 1100px;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1720;
+    --text: #e6e6e6;
+    --primary: #4fc3f7;
+    --accent: #81d4fa;
+    --text-header: #e6e6e6;
+
+    --header-bg: #121e2b;
+    --footer-bg: #0b141d;
+    --section-bg: #0f1720;
+
+    --card-bg: #162231;
+    --shadow: rgba(0, 0, 0, 0.5);
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
