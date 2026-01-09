@@ -13,7 +13,7 @@
   --maxW: 1100px;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0f1720;
     --text: #e6e6e6;
@@ -28,7 +28,7 @@
     --card-bg: #162231;
     --shadow: rgba(0, 0, 0, 0.5);
   }
-}
+} */
 
 * {
   box-sizing: border-box;
