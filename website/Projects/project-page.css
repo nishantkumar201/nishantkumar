@@ -1,0 +1,255 @@
+/* Project detail page — extends style.css, no sidebar */
+
+body {
+  background: var(--bg);
+}
+
+.project-page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 32px;
+  transition: color 0.15s;
+}
+.back-link:hover {
+  color: var(--accent);
+}
+
+.project-header h1 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.project-sub {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 60ch;
+  margin-bottom: 18px;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.project-body {
+  margin: 32px 0;
+}
+.project-body p {
+  font-size: 0.94rem;
+  max-width: 68ch;
+  color: var(--text);
+}
+
+/* Animation container */
+.anim-wrap {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 12px;
+}
+
+.anim-loading {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.anim-error {
+  text-align: center;
+  padding: 40px 20px;
+  color: #a03000;
+  font-size: 0.9rem;
+}
+.anim-error i {
+  margin-right: 6px;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.metric {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.mlabel {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.mval {
+  font-size: 1.15rem;
+  font-weight: 500;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.progress-bar-wrap {
+  height: 4px;
+  background: var(--bg);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.legend-dot {
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.project-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 14px;
+  margin-top: 20px;
+  max-width: 62ch;
+}
+.project-note a {
+  color: var(--primary);
+}
+.project-note a:hover {
+  color: var(--accent);
+}
+
+.chart-row {
+  margin-bottom: 16px;
+}
+
+.chart-caption {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.howto {
+  margin-top: 40px;
+}
+.howto h2 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.howto h3 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin: 26px 0 8px;
+}
+.howto p,
+.howto li {
+  font-size: 0.92rem;
+  max-width: 68ch;
+}
+.howto ol {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+.howto li {
+  margin-bottom: 10px;
+}
+.howto a {
+  color: var(--primary);
+}
+.howto a:hover {
+  color: var(--accent);
+}
+.chart-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.controls button {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--header-text);
+  background: var(--header-bg);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.15s;
+}
+.controls button:hover {
+  opacity: 0.85;
+}
+#scrubber {
+  flex: 1;
+  min-width: 140px;
+  accent-color: var(--accent);
+}
+#step-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  min-width: 120px;
+}
+
+@media (max-width: 600px) {
+  .metric-row {
+    grid-template-columns: 1fr;
+  }
+}

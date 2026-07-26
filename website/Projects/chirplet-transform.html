@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GPU-Accelerated Chirplet Transform — Nishant Kumar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="/project-page.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  </head>
+
+  <body>
+    <main class="project-page">
+      <a href="../index.html#projects" class="back-link"
+        ><i class="fas fa-arrow-left"></i> Back to projects</a
+      >
+
+      <header class="project-header">
+        <h1>GPU-Accelerated Chirplet Transform</h1>
+        <p class="project-sub">
+          Real-time signal decomposition using an adaptive chirplet dictionary,
+          accelerated for large-scale runtime analysis.
+        </p>
+        <div class="project-links">
+          <a
+            href="https://github.com/nishantkumar201/adaptive-chirplet-transform"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+            ><i class="fab fa-github"></i> View Repository</a
+          >
+          <a
+            href="https://ieeexplore.ieee.org/document/11512436/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+            ><i class="fas fa-external-link-alt"></i> Related Publication</a
+          >
+          <a
+            href="https://arxiv.org/abs/2607.16629"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+            ><i class="fas fa-scroll"></i> arXiv Preprint</a
+          >
+        </div>
+      </header>
+
+      <section class="project-body">
+        <p>
+          The animation below shows a real decomposition on 2 seconds of EEG
+          (512 samples at 256&nbsp;Hz) from channel 1 &mdash; one of two frontal
+          electrodes &mdash; of Patient&nbsp;1 in the Bitbrain sleep EEG
+          dataset. Watch the approximation build up and the residual shrink as
+          each of 12 chirplets is added; by the final chirplet, residual energy
+          drops to about 4% of the original signal. Full technical breakdown
+          below the animation.
+        </p>
+      </section>
+
+      <section class="anim-wrap" id="chirplet-anim">
+        <div id="anim-loading" class="anim-loading">
+          <i class="fas fa-spinner fa-spin"></i> Loading animation&hellip;
+        </div>
+
+        <div id="anim-body" style="display: none">
+          <div class="metric-row">
+            <div class="metric">
+              <div class="mlabel">Chirplet</div>
+              <div class="mval" id="m-step">—</div>
+            </div>
+            <div class="metric">
+              <div class="mlabel">Energy explained</div>
+              <div class="mval" id="m-explained">—</div>
+            </div>
+            <div class="metric">
+              <div class="mlabel">Norm residue</div>
+              <div class="mval" id="m-norm">—</div>
+            </div>
+          </div>
+
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="prog"></div>
+          </div>
+
+          <div class="legend">
+            <span
+              ><span class="legend-dot" style="background: #378add"></span
+              >Original signal</span
+            >
+            <span
+              ><span class="legend-dot" style="background: #1d9e75"></span
+              >Approximation so far</span
+            >
+            <span
+              ><span class="legend-dot" style="background: #c0a900"></span
+              >Current chirplet</span
+            >
+            <span
+              ><span
+                class="legend-dot"
+                style="background: #d85a30; border: 1px dashed #d85a30"
+              ></span
+              >Residual</span
+            >
+          </div>
+
+          <div class="chart-row">
+            <div class="chart-label">Signal decomposition</div>
+            <div style="position: relative; width: 100%; height: 240px">
+              <canvas id="c-main"></canvas>
+            </div>
+            <p class="chart-caption">
+              EEG channel 1 (frontal), Patient 1, Bitbrain sleep dataset &mdash;
+              512 samples at 256&nbsp;Hz (2s epoch).
+            </p>
+          </div>
+
+          <div class="chart-row">
+            <div class="chart-label">Residual energy over iterations</div>
+            <div style="position: relative; width: 100%; height: 140px">
+              <canvas id="c-norm"></canvas>
+            </div>
+            <p class="chart-caption">
+              Normalized residual energy after each chirplet is subtracted
+              &mdash; drops to ~4% after 12 chirplets.
+            </p>
+          </div>
+
+          <div class="controls">
+            <button id="btn-play"><i class="fas fa-play"></i> Play</button>
+            <input type="range" min="0" max="9" value="0" id="scrubber" />
+            <span id="step-label">—</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="howto">
+        <h2>How It Works</h2>
+
+        <h3>The Problem</h3>
+        <p>
+          The Adaptive Chirplet Transform decomposes a non-stationary signal
+          into a small set of time&ndash;frequency atoms, each fit greedily via
+          matching pursuit to explain as much of the remaining signal energy as
+          possible. It has been applied to EEG, EMG, and radar signals, but two
+          issues have historically blocked real deployment:
+        </p>
+        <ol>
+          <li>
+            <strong>Algorithmic instability.</strong> The per-step search for
+            the best-fit chirplet happens over a high-dimensional, non-convex
+            parameter space. Without careful numerical treatment, the
+            decomposition can diverge &mdash; later steps make the residual
+            <em>worse</em>, not better.
+          </li>
+          <li>
+            <strong>Computational cost.</strong> Searching that parameter space
+            naively is too slow for real-time use, ruling out on-device and
+            wearable applications where speed is a hard constraint.
+          </li>
+        </ol>
+
+        <h3>The Approach</h3>
+        <p>
+          <strong>Math: unit-normalized, residual-based projection.</strong>
+          The core change is aligning the per-step projection strictly with
+          Matching Pursuit theory &mdash; normalizing the chirplet basis at each
+          iteration and projecting against the true residual, rather than a
+          looser approximation of it. This eliminates divergence and
+          substantially reduces residual error, and the effect holds across
+          signal domains, not just EEG.
+        </p>
+        <p>
+          <strong>Architecture: hybrid CPU&ndash;GPU pipeline.</strong>
+          Chirplet generation (constructing candidate atoms from the parameter
+          space) runs on the CPU. The search over those candidates &mdash; the
+          expensive part &mdash; is parallelized on the GPU. Splitting the work
+          this way removes the bottlenecks of doing either step alone: CPU-only
+          search is too slow; GPU-only generation doesn't parallelize well.
+        </p>
+
+        <h3>Seeing It Work</h3>
+        <p>
+          On the real EEG epoch animated above, the decomposition converges
+          cleanly: after 1 chirplet, roughly 96% of signal energy remains
+          unexplained; after 12 chirplets, that residual drops to about 4.3%.
+          Each added chirplet explains a diminishing but consistent share of
+          what's left &mdash; no divergence, no wasted steps.
+        </p>
+
+        <h3>Status</h3>
+        <p>
+          Preprint on arXiv, currently under review at OJSP. Full derivation,
+          benchmarks, and multi-channel scalability results are in the paper
+          &mdash; N. Kumar, S. Mann,
+          <a
+            href="https://arxiv.org/abs/2607.16629"
+            target="_blank"
+            rel="noopener noreferrer"
+            >&ldquo;Toward a Stable and Deployable Adaptive Chirplet Transform:
+            Residual Projection, Hybrid GPU Acceleration, and Multi-Channel
+            Scalability&rdquo;</a
+          >, arXiv:2607.16629, 2026.
+        </p>
+      </section>
+    </main>
+
+    <script src="chirplet-animation.js"></script>
+  </body>
+</html>
