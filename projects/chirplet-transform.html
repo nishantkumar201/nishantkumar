@@ -59,12 +59,12 @@
       <section class="project-body">
         <p>
           The animation below shows a real decomposition on 2 seconds of EEG
-          (512 samples at 256&nbsp;Hz) from channel 1 &mdash; one of two frontal
-          electrodes &mdash; of Patient&nbsp;1 in the Bitbrain sleep EEG
-          dataset. Watch the approximation build up and the residual shrink as
-          each of 12 chirplets is added; by the final chirplet, residual energy
-          drops to about 4% of the original signal. Full technical breakdown
-          below the animation.
+          (512 samples at 256&nbsp;Hz) from channel 1, one of two frontal
+          electrodes, of Patient&nbsp;1 in the Bitbrain sleep EEG dataset. Watch
+          the approximation build up and the residual shrink as each of 12
+          chirplets is added; by the final chirplet, residual energy drops to
+          about 4% of the original signal. Full technical breakdown below the
+          animation.
         </p>
       </section>
 
@@ -121,8 +121,8 @@
               <canvas id="c-main"></canvas>
             </div>
             <p class="chart-caption">
-              EEG channel 1 (frontal), Patient 1, Bitbrain sleep dataset &mdash;
-              512 samples at 256&nbsp;Hz (2s epoch).
+              EEG channel 1 (frontal), Patient 1, Bitbrain sleep dataset, 512
+              samples at 256&nbsp;Hz (2s epoch).
             </p>
           </div>
 
@@ -132,8 +132,8 @@
               <canvas id="c-norm"></canvas>
             </div>
             <p class="chart-caption">
-              Normalized residual energy after each chirplet is subtracted
-              &mdash; drops to ~4% after 12 chirplets.
+              Normalized residual energy after each chirplet is subtracted from
+              the signal. It drops to ~4% after 12 chirplets.
             </p>
           </div>
 
@@ -161,7 +161,7 @@
             <strong>Algorithmic instability.</strong> The per-step search for
             the best-fit chirplet happens over a high-dimensional, non-convex
             parameter space. Without careful numerical treatment, the
-            decomposition can diverge &mdash; later steps make the residual
+            decomposition can diverge, and later steps make the residual
             <em>worse</em>, not better.
           </li>
           <li>
@@ -175,7 +175,7 @@
         <p>
           <strong>Math: unit-normalized, residual-based projection.</strong>
           The core change is aligning the per-step projection strictly with
-          Matching Pursuit theory &mdash; normalizing the chirplet basis at each
+          Matching Pursuit theory by normalizing the chirplet basis at each
           iteration and projecting against the true residual, rather than a
           looser approximation of it. This eliminates divergence and
           substantially reduces residual error, and the effect holds across
@@ -184,9 +184,9 @@
         <p>
           <strong>Architecture: hybrid CPU&ndash;GPU pipeline.</strong>
           Chirplet generation (constructing candidate atoms from the parameter
-          space) runs on the CPU. The search over those candidates &mdash; the
-          expensive part &mdash; is parallelized on the GPU. Splitting the work
-          this way removes the bottlenecks of doing either step alone: CPU-only
+          space) runs on the CPU. The search over those candidates, which is the
+          expensive part, is parallelized on the GPU. Splitting the work this
+          way removes the bottlenecks of doing either step alone: CPU-only
           search is too slow; GPU-only generation doesn't parallelize well.
         </p>
 
@@ -196,7 +196,7 @@
           cleanly: after 1 chirplet, roughly 43% of signal energy remains
           unexplained; after 12 chirplets, that residual drops to about 4.3%.
           Each added chirplet explains a diminishing but consistent share of
-          what's left &mdash; no divergence, no wasted steps.
+          what's left of the signal, no divergence, no wasted steps.
         </p>
 
         <h3>Status</h3>
