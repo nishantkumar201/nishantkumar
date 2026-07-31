@@ -190,6 +190,140 @@
           search is too slow; GPU-only generation doesn't parallelize well.
         </p>
 
+        <div class="arch-wrap">
+          <div class="chart-label">Pipeline architecture</div>
+          <svg
+            class="arch-diagram"
+            viewBox="0 0 720 210"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <marker
+                id="arch-arrowhead"
+                markerWidth="8"
+                markerHeight="8"
+                refX="6"
+                refY="3"
+                orient="auto"
+              >
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--text-muted)" />
+              </marker>
+            </defs>
+
+            <rect
+              x="8"
+              y="82"
+              width="128"
+              height="52"
+              rx="8"
+              class="arch-box"
+            />
+            <text x="72" y="103" text-anchor="middle" class="arch-label">
+              EEG Epoch
+            </text>
+            <text x="72" y="119" text-anchor="middle" class="arch-sublabel">
+              512 samples, 256 Hz
+            </text>
+
+            <line x1="136" y1="108" x2="184" y2="108" class="arch-arrow" />
+
+            <rect
+              x="188"
+              y="82"
+              width="150"
+              height="52"
+              rx="8"
+              class="arch-box"
+            />
+            <text
+              x="20"
+              y="0"
+              class="arch-tag"
+              transform="translate(263,72)"
+              text-anchor="middle"
+            >
+              CPU
+            </text>
+            <text x="263" y="105" text-anchor="middle" class="arch-label">
+              Candidate Generation
+            </text>
+            <text x="263" y="121" text-anchor="middle" class="arch-sublabel">
+              chirplet dictionary
+            </text>
+
+            <path d="M338,108 L364,108 L364,56 L386,56" class="arch-arrow" />
+
+            <rect
+              x="390"
+              y="30"
+              width="180"
+              height="52"
+              rx="8"
+              class="arch-box-accent"
+            />
+            <text
+              class="arch-tag"
+              transform="translate(480,20)"
+              text-anchor="middle"
+            >
+              GPU
+            </text>
+            <text x="480" y="53" text-anchor="middle" class="arch-label">
+              Parallel Search
+            </text>
+            <text x="480" y="69" text-anchor="middle" class="arch-sublabel">
+              unit-normalized projection
+            </text>
+
+            <line x1="570" y1="56" x2="606" y2="56" class="arch-arrow" />
+
+            <rect
+              x="610"
+              y="30"
+              width="102"
+              height="52"
+              rx="8"
+              class="arch-box"
+            />
+            <text x="661" y="53" text-anchor="middle" class="arch-label">
+              Atom k
+            </text>
+            <text x="661" y="69" text-anchor="middle" class="arch-sublabel">
+              best-fit chirplet
+            </text>
+
+            <rect
+              x="390"
+              y="128"
+              width="180"
+              height="52"
+              rx="8"
+              class="arch-box"
+            />
+            <text x="480" y="151" text-anchor="middle" class="arch-label">
+              Residual Update
+            </text>
+            <text x="480" y="167" text-anchor="middle" class="arch-sublabel">
+              subtract atom from signal
+            </text>
+
+            <path d="M480,82 L480,124" class="arch-arrow" />
+            <path
+              d="M390,154 L263,154 L263,138"
+              class="arch-arrow"
+              fill="none"
+            />
+            <text x="330" y="147" text-anchor="middle" class="arch-sublabel">
+              loop &times;12
+            </text>
+          </svg>
+          <p class="chart-caption">
+            Chirplet generation runs on the CPU; the expensive parallel search
+            over candidates runs on the GPU. Each iteration's residual feeds
+            back into the next candidate search.
+          </p>
+        </div>
+
         <h3>Seeing It Work</h3>
         <p>
           On the real EEG epoch animated above, the decomposition converges

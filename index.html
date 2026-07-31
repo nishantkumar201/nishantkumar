@@ -29,8 +29,8 @@
         <img src="Logo.png" alt="NK Logo" class="sidebar-logo" />
         <div class="sidebar-name">Nishant<br />Kumar</div>
         <div class="sidebar-tagline">
-          Embedded &amp; Biomedical Engineering &mdash; Wearables, Signal
-          Processing
+          Biomedical Engineering: Wearables, Signal Processing, Assistive
+          Rehabilitation Systems
         </div>
         <nav class="sidebar-nav">
           <a href="#about"><i class="fas fa-user"></i> About</a>
@@ -51,17 +51,19 @@
           <h2>About Me</h2>
           <div class="about-text">
             <p>
-              I am a Master&rsquo;s researcher in Electrical and Computer
-              Engineering at the University of Toronto, working under Dr. Steve
-              Mann. My research focuses on systems that integrate signal
-              processing, embedded computing, and hardware acceleration, with
-              applications in EEG analysis, wearable sensing, and rehabilitation
-              technologies.
+              I am a PhD student in Electrical and Computer Engineering at the
+              University of Toronto, working in the Kei Masani Lab, with a focus
+              on biomedical engineering and assistive rehabilitation systems.
             </p>
             <p>
-              My current work includes GPU-accelerated adaptive
+              I recently completed my Master&rsquo;s under Dr. Steve Mann, where
+              my research focused on systems that integrate signal processing,
+              embedded computing, and hardware acceleration, with applications
+              in EEG analysis, wearable sensing, and rehabilitation
+              technologies, including GPU-accelerated adaptive
               time&ndash;frequency methods, embedded EEG data acquisition
-              systems, and assistive robotics.
+              systems, and assistive robotics. That work forms the foundation
+              I&rsquo;m building on now.
             </p>
           </div>
         </section>
@@ -70,7 +72,15 @@
         <section id="publications">
           <h2>Publications</h2>
 
-          <div class="pub-group-label">Journal &amp; Conference Papers</div>
+          <nav class="pub-toc" aria-label="Publications quick jump">
+            <a href="#pub-journal">Journal &amp; Conference Papers</a>
+            <a href="#pub-proceedings">Edited Volumes / Proceedings</a>
+            <a href="#pub-review">Accepted / Under Review</a>
+          </nav>
+
+          <div class="pub-group-label" id="pub-journal">
+            Journal &amp; Conference Papers
+          </div>
           <ul class="pub-list">
             <li>
               <strong>
@@ -210,7 +220,9 @@
             </li>
           </ul>
 
-          <div class="pub-group-label">Edited Volumes / Proceedings</div>
+          <div class="pub-group-label" id="pub-proceedings">
+            Edited Volumes / Proceedings
+          </div>
           <ul class="pub-list">
             <li>
               <strong>
@@ -246,7 +258,9 @@
               </div>
             </li>
           </ul>
-          <div class="pub-group-label">Accepted/Under Review</div>
+          <div class="pub-group-label" id="pub-review">
+            Accepted/Under Review
+          </div>
           <ul class="pub-list">
             <li>
               <strong>
@@ -285,6 +299,12 @@
                 optimized frame and an embedded C++ flight controller featuring
                 real-time sensor fusion and motor control.
               </p>
+              <div class="tag-list">
+                <span class="tag tag-status">In Progress</span>
+                <span class="tag">Embedded C++</span>
+                <span class="tag">Sensor Fusion</span>
+                <span class="tag">3D Printing</span>
+              </div>
               <a
                 href="https://github.com/JaiWillems/nj-sandbox"
                 target="_blank"
@@ -303,6 +323,12 @@
                 Developing a GPU-accelerated Chirplet Transform optimized for
                 real-time signal processing and analysis.
               </p>
+              <div class="tag-list">
+                <span class="tag tag-status tag-done">Completed</span>
+                <span class="tag">GPU Computing</span>
+                <span class="tag">Signal Processing</span>
+                <span class="tag">EEG</span>
+              </div>
               <a
                 href="https://github.com/nishantkumar201/adaptive-chirplet-transform"
                 target="_blank"
@@ -324,12 +350,23 @@
                 System to measure ankle and spine movements in 3D using IMU
                 sensors, stereo vision, and human segmentation with YOLO.
               </p>
+              <div class="tag-list">
+                <span class="tag tag-status tag-done">Completed</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">IMU</span>
+                <span class="tag">YOLO</span>
+              </div>
               <a
                 href="https://github.com/nishantkumar201/IMUSense"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="project-link"
                 ><i class="fab fa-github"></i> View Repository</a
+              >
+              <a
+                href="/projects/biomechanics-tracking.html"
+                class="project-link"
+                ><i class="fas fa-play"></i> View Project Page</a
               >
             </div>
           </div>
