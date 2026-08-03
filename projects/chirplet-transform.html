@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -26,6 +26,19 @@
       >
 
       <header class="project-header">
+        <svg
+          class="project-wave"
+          viewBox="0 0 300 40"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,20 Q10,4 20,20 T40,20 T60,20 T80,20 T100,20 T120,20 T140,20 T160,20 T180,20 T200,20 T220,20 T240,20 T260,20 T280,20 T300,20"
+            stroke="var(--accent-coral)"
+            stroke-width="2.2"
+            fill="none"
+            opacity="0.85"
+          />
+        </svg>
         <h1>GPU-Accelerated Chirplet Transform</h1>
         <p class="project-sub">
           Real-time signal decomposition using an adaptive chirplet dictionary,
@@ -335,9 +348,9 @@
 
         <h3>Status</h3>
         <p>
-          Preprint on arXiv, currently under review at OJSP. Full derivation,
-          benchmarks, and multi-channel scalability results are in the paper
-          &mdash; N. Kumar, S. Mann,
+          Under review at IEEE Open Journal of Signal Processing (submitted July
+          2026). Full derivation, benchmarks, and multi-channel scalability
+          results are in the paper &mdash; N. Kumar, S. Mann,
           <a
             href="https://arxiv.org/abs/2607.16629"
             target="_blank"

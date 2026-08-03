@@ -21,12 +21,21 @@
   transition: color 0.15s;
 }
 .back-link:hover {
-  color: var(--accent);
+  color: var(--accent-coral);
+}
+
+.project-wave {
+  width: 100%;
+  max-width: 300px;
+  height: 34px;
+  display: block;
+  margin-bottom: 18px;
 }
 
 .project-header h1 {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 1.7rem;
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-size: 1.9rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   margin-bottom: 10px;
@@ -112,7 +121,7 @@
 }
 .progress-bar-fill {
   height: 100%;
-  background: var(--accent);
+  background: var(--accent-coral);
   border-radius: 4px;
   transition: width 0.4s ease;
 }
@@ -140,7 +149,7 @@
 .project-note {
   font-size: 0.85rem;
   color: var(--text-muted);
-  border-left: 2px solid var(--accent);
+  border-left: 2px solid var(--accent-coral);
   padding-left: 14px;
   margin-top: 20px;
 }
@@ -148,7 +157,7 @@
   color: var(--primary);
 }
 .project-note a:hover {
-  color: var(--accent);
+  color: var(--accent-coral);
 }
 
 .chart-row {
@@ -169,6 +178,12 @@
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 16px;
+  /* override the wave-divider display:flex from style.css h2 rule,
+     this page's h2 is a plain section title, not a wave-divider */
+  display: block;
+}
+.howto h2::after {
+  content: none;
 }
 .howto h3 {
   font-family: "IBM Plex Mono", monospace;
@@ -194,7 +209,7 @@
   color: var(--primary);
 }
 .howto a:hover {
-  color: var(--accent);
+  color: var(--accent-coral);
 }
 .arch-wrap {
   margin: 14px 0 6px;
@@ -211,7 +226,7 @@
 }
 .arch-box-accent {
   fill: var(--card-bg);
-  stroke: var(--accent);
+  stroke: var(--accent-coral);
   stroke-width: 1.6;
 }
 .arch-label {
@@ -277,7 +292,7 @@
 #scrubber {
   flex: 1;
   min-width: 140px;
-  accent-color: var(--accent);
+  accent-color: var(--accent-coral);
 }
 #step-label {
   font-family: "IBM Plex Mono", monospace;

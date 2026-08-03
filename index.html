@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -29,8 +29,8 @@
         <img src="Logo.png" alt="NK Logo" class="sidebar-logo" />
         <div class="sidebar-name">Nishant<br />Kumar</div>
         <div class="sidebar-tagline">
-          Biomedical Engineering: Wearables, Signal Processing, Assistive
-          Rehabilitation Systems
+          Wearable Systems &middot; Embedded Computing &middot; Rehabilitation
+          Technology
         </div>
         <nav class="sidebar-nav">
           <a href="#about"><i class="fas fa-user"></i> About</a>
@@ -46,21 +46,54 @@
 
       <!-- Main Content -->
       <main class="main-content">
+        <!-- Hero -->
+        <div class="hero-eyebrow">Biomedical Engineering</div>
+        <svg
+          class="hero-wave"
+          viewBox="0 0 460 56"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            id="hero-wave-path"
+            d="M0,28 C 18,9 36,9 54,28 C 72,47 90,47 108,28 C 126,9 144,9 162,28
+               C 180,47 198,47 216,28 C 224,18 228,4 234,4 C 240,4 244,18 252,28
+               C 266,44 282,44 298,28 C 316,12 334,12 352,28 C 370,44 388,44 406,28
+               C 424,12 442,12 460,28"
+            stroke="var(--primary)"
+            stroke-width="2.3"
+            fill="none"
+            opacity="0.85"
+          />
+        </svg>
+        <h1 class="hero-name">Building Wearable Assistive Systems</h1>
+        <p class="hero-tagline">
+          PhD student in Biomedical Engineering, University of Toronto.
+        </p>
+
         <!-- About -->
         <section id="about">
-          <h2>About Me</h2>
+          <h2>
+            <svg viewBox="0 0 64 20">
+              <path
+                class="wave-path"
+                d="M0,10 Q8,0 16,10 T32,10 T48,10 T64,10"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+            About
+          </h2>
           <div class="about-text">
             <p>
-              I am a PhD student in Biomedical Engineering at the University of
-              Toronto, working in the Kei Masani Lab, with a focus on assistive
-              rehabilitation systems.
+              I'm an incoming PhD student in Biomedical Engineering at the
+              University of Toronto this September, working in the Dr. Kei
+              Masani Lab, with a focus on wearable assistive systems.
             </p>
             <p>
-              I recently completed my Master&rsquo;s under Dr. Steve Mann, where
-              my research focused on systems that integrate signal processing,
-              embedded computing, and hardware acceleration, with applications
-              in EEG analysis, wearable sensing, and rehabilitation
-              technologies, including GPU-accelerated adaptive
+              My Master's, under Dr. Steve Mann, focused on signal processing,
+              embedded computing, and hardware acceleration, applied to EEG
+              analysis and wearable sensing, aimed at making rehab technology
+              more accessible. This included GPU-accelerated adaptive
               time&ndash;frequency methods and embedded EEG data acquisition
               systems.
             </p>
@@ -69,12 +102,21 @@
 
         <!-- Publications -->
         <section id="publications">
-          <h2>Publications</h2>
+          <h2>
+            <svg viewBox="0 0 64 20">
+              <path
+                class="wave-path"
+                d="M0,10 Q8,0 16,10 T32,10 T48,10 T64,10"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+            Publications
+          </h2>
 
           <nav class="pub-toc" aria-label="Publications quick jump">
             <a href="#pub-journal">Journal &amp; Conference Papers</a>
             <a href="#pub-proceedings">Edited Volumes / Proceedings</a>
-            <a href="#pub-review">Accepted / Under Review</a>
           </nav>
 
           <div class="pub-group-label" id="pub-journal">
@@ -83,138 +125,160 @@
           <ul class="pub-list">
             <li>
               <strong>
-                Adaptive Chirplet Transform-Based Neural Network for Seizure
-                State Detection
+                <a
+                  href="https://arxiv.org/abs/2607.16629"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="pub-title-link"
+                  >Toward a Stable and Deployable Adaptive Chirplet Transform:
+                  Residual Projection, Hybrid GPU Acceleration, and
+                  Multi-Channel Scalability</a
+                >
               </strong>
-              <span class="venue"
-                >IEEE International Conference on AI in Information and
-                Communication (ICAIIC), 2026.</span
-              >
+              <span class="pub-authors">N. Kumar, S. Mann</span>
               <div class="pub-meta">
+                <span class="venue"
+                  >IEEE Open Journal of Signal Processing</span
+                >
+                <span class="status-badge"
+                  >Under Review &middot; submitted July 2026</span
+                >
+              </div>
+            </li>
+
+            <li>
+              <strong>
                 <a
                   href="https://ieeexplore.ieee.org/document/11454332"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Publication</a
+                  class="pub-title-link"
+                  >Adaptive Chirplet Transform-Based Neural Network for Seizure
+                  State Detection</a
                 >
+              </strong>
+              <span class="pub-authors">R. Jeong, N. Kumar, S. Mann</span>
+              <div class="pub-meta">
+                <span class="venue">IEEE ICAIIC 2025</span>
               </div>
             </li>
 
             <li>
               <strong>
-                GPU-Accelerated Chirplet Transform: Scalable Runtime Profiling
-                and Analysis
-              </strong>
-              <span class="venue"
-                >IEEE International Conference on Sensing Technologies (ICST),
-                2025.</span
-              >
-              <div class="pub-meta">
                 <a
                   href="https://ieeexplore.ieee.org/document/11512436/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Publication</a
+                  class="pub-title-link"
+                  >GPU-Accelerated Chirplet Transform: Scalable Runtime
+                  Profiling and Analysis</a
                 >
+              </strong>
+              <span class="pub-authors">N. Kumar, S. Mann</span>
+              <div class="pub-meta">
+                <span class="venue">IEEE ICST 2025</span>
               </div>
             </li>
+
             <li>
               <strong>
-                Portable EEG-Based Data Acquisition and Multi-Sensor Integration
-                Using the Muse S Headband
-              </strong>
-              <span class="venue"
-                >IEEE International Conference on Control, Automation and
-                Diagnosis (ICCAD), 2025.</span
-              >
-              <div class="pub-meta">
                 <a
                   href="https://ieeexplore.ieee.org/abstract/document/11099439"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Publication</a
+                  class="pub-title-link"
+                  >Portable EEG-Based Data Acquisition and Multi-Sensor
+                  Integration Using the Muse S Headband</a
+                >
+              </strong>
+              <span class="pub-authors"
+                >A. Hosseingholizadeh, N. Kumar, S. Mann</span
+              >
+              <div class="pub-meta">
+                <span class="venue">IEEE ICCAD 2025</span>
+              </div>
+            </li>
+
+            <li>
+              <strong>
+                <a
+                  href="https://ieeexplore.ieee.org/abstract/document/11155738"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="pub-title-link"
+                  >MoBorg: Mobility as Cyborg Prosthesis for &ldquo;Being a
+                  Ball&rdquo;</a
+                >
+              </strong>
+              <span class="pub-authors"
+                >S. Mann, A. Hosseingholizadeh, A.S. Aksu, D. Tzanetakis, N.
+                Kumar</span
+              >
+              <div class="pub-meta">
+                <span class="venue">IEEE GEM 2025</span>
+              </div>
+            </li>
+
+            <li>
+              <strong>
+                <a
+                  href="https://ieeexplore.ieee.org/document/10929845"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="pub-title-link"
+                  >Adaptive Chirplet Transform-Based Sleep State Detection</a
+                >
+              </strong>
+              <span class="pub-authors"
+                >S. Mann, N. Kumar, J.P. Bicalho, M. Sibai, C.
+                Leaver-Preya</span
+              >
+              <div class="pub-meta">
+                <span class="venue">IEEE ICCE 2025</span>
+                <span class="award-badge"
+                  ><i class="fas fa-award"></i> Best Poster Paper Award</span
                 >
               </div>
             </li>
 
             <li>
               <strong>
-                MoBorg: Mobility as Cyborg Prosthesis for &ldquo;Being a
-                Ball&rdquo;
-              </strong>
-              <span class="venue"
-                >IEEE Games, Entertainment and Media (GEM), 2025.</span
-              >
-              <div class="pub-meta">
-                <a
-                  href="https://ieeexplore.ieee.org/abstract/document/11155738"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Publication</a
-                >
-              </div>
-            </li>
-
-            <li>
-              <strong
-                >Adaptive Chirplet Transform-Based Sleep State Detection</strong
-              >
-              <span class="venue"
-                >IEEE International Conference on Consumer Electronics (ICCE),
-                2025.</span
-              >
-              <div class="pub-meta">
-                <span class="award-badge"
-                  ><i class="fas fa-award"></i> Best Poster Paper Award</span
-                >
-                <a
-                  href="https://ieeexplore.ieee.org/document/10929845"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Publication</a
-                >
-              </div>
-            </li>
-
-            <li>
-              <strong>Smart Rollator Walker for Enhanced Mobility</strong>
-              <span class="venue"
-                >IEEE International Conference on Consumer Electronics (ICCE),
-                2025.</span
-              >
-              <div class="pub-meta">
-                <span class="award-badge"
-                  ><i class="fas fa-award"></i> Best Session Paper</span
-                >
                 <a
                   href="https://ieeexplore.ieee.org/document/10930079/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Publication</a
+                  class="pub-title-link"
+                  >Smart Rollator Walker for Enhanced Mobility</a
+                >
+              </strong>
+              <span class="pub-authors"
+                >S. Mann, A. Hosseingholizadeh, M. Isiksalan, A. Jiao, N. Kumar,
+                C. Mann</span
+              >
+              <div class="pub-meta">
+                <span class="venue">IEEE ICCE 2025</span>
+                <span class="award-badge"
+                  ><i class="fas fa-award"></i> Best Session Paper</span
                 >
               </div>
             </li>
 
             <li>
-              <strong>XR Waterball for Spinal Rehabilitation</strong>
-              <span class="venue"
-                >Second International Workshop on Human-centered Sensing,
-                Networking, and Multi-Device Systems (HumanSys), 2024.</span
-              >
-              <div class="pub-meta">
+              <strong>
                 <a
                   href="http://wearcam.org/XRwaterball_for_spinal_rehab_3698388.3699623.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Publication</a
+                  class="pub-title-link"
+                  >XR Waterball for Spinal Rehabilitation</a
                 >
+              </strong>
+              <span class="pub-authors"
+                >S. Mann, A. Hosseingholizadeh, N. Kumar, A. Jiao, C.
+                Leaver-Preya</span
+              >
+              <div class="pub-meta">
+                <span class="venue">HumanSys 2024</span>
               </div>
             </li>
           </ul>
@@ -225,180 +289,250 @@
           <ul class="pub-list">
             <li>
               <strong>
-                Proceedings of the 27th Annual Mersivity / Water-HCI Symposium
-                (December Edition)
-              </strong>
-              <span class="venue"><em>Proceedings Chair</em></span>
-              <div class="pub-meta">
                 <a
                   href="https://zenodo.org/records/18042961"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Publication</a
+                  class="pub-title-link"
+                  >Proceedings of the 27th Annual Mersivity / Water-HCI
+                  Symposium (December Edition)</a
                 >
-              </div>
+              </strong>
+              <span class="pub-authors"><em>Proceedings Chair</em></span>
             </li>
 
             <li>
               <strong>
-                Proceedings of the 27th Annual Mersivity / Water-HCI Symposium
-                (August 2025)
-              </strong>
-              <span class="venue"><em>Publication Chair</em></span>
-              <div class="pub-meta">
                 <a
                   href="https://doi.org/10.5281/zenodo.16973160"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Publication</a
+                  class="pub-title-link"
+                  >Proceedings of the 27th Annual Mersivity / Water-HCI
+                  Symposium (August 2025)</a
                 >
-              </div>
-            </li>
-          </ul>
-          <div class="pub-group-label" id="pub-review">
-            Accepted/Under Review
-          </div>
-          <ul class="pub-list">
-            <li>
-              <strong>
-                Toward a Stable and Deployable Adaptive Chirplet Transform:
-                Residual Projection, Hybrid GPU Acceleration, and Multi-Channel
-                Scalability
               </strong>
-              <span class="venue"
-                ><em>Open Journal of Signal Processing</em></span
-              >
-              <div class="pub-meta">
-                <a
-                  href="https://arxiv.org/abs/2607.16629"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="pub-link"
-                  ><i class="fas fa-external-link-alt"></i> View Preprint</a
-                >
-              </div>
+              <span class="pub-authors"><em>Publication Chair</em></span>
             </li>
           </ul>
         </section>
 
         <!-- Projects -->
         <section id="projects">
-          <h2>Projects</h2>
+          <h2>
+            <svg viewBox="0 0 64 20">
+              <path
+                class="wave-path"
+                d="M0,10 Q8,0 16,10 T32,10 T48,10 T64,10"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+            Projects
+          </h2>
 
           <div class="project-grid">
             <div class="project-card">
-              <div class="project-icon">
-                <img src="icons8-drone-50.png" alt="Drone icon" />
+              <div class="project-thumb">
+                <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0,20 Q10,4 20,20 T40,20 T60,20 T80,20 T100,20"
+                    stroke="var(--accent-coral)"
+                    stroke-width="2.5"
+                    fill="none"
+                  />
+                </svg>
               </div>
-              <h3>Drone Development</h3>
-              <p>
-                Designing and building a custom drone with a 3D-printed
-                optimized frame and an embedded C++ flight controller featuring
-                real-time sensor fusion and motor control.
-              </p>
-              <div class="tag-list">
-                <span class="tag tag-status">In Progress</span>
-                <span class="tag">Embedded C++</span>
-                <span class="tag">Sensor Fusion</span>
-                <span class="tag">3D Printing</span>
+              <div class="project-body">
+                <h3>GPU-Accelerated Chirplet Transform</h3>
+                <p>
+                  Developing a GPU-accelerated Chirplet Transform optimized for
+                  real-time signal processing and analysis.
+                </p>
+                <div class="tag-list">
+                  <span class="tag tag-status tag-done">Completed</span>
+                  <span class="tag">GPU Computing</span>
+                  <span class="tag">Signal Processing</span>
+                  <span class="tag">EEG</span>
+                </div>
+                <div class="project-links-row">
+                  <a
+                    href="https://github.com/nishantkumar201/adaptive-chirplet-transform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                    ><i class="fab fa-github"></i> View Repository</a
+                  >
+                  <a
+                    href="projects/chirplet-transform.html"
+                    class="project-link"
+                    ><i class="fas fa-play"></i> View Project Page</a
+                  >
+                </div>
               </div>
-              <a
-                href="https://github.com/JaiWillems/nj-sandbox"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-                ><i class="fab fa-github"></i> View Repository</a
-              >
             </div>
 
             <div class="project-card">
-              <div class="project-icon">
-                <i class="fas fa-microchip fa-fw"></i>
+              <div class="project-thumb">
+                <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                  <rect
+                    x="30"
+                    y="8"
+                    width="40"
+                    height="24"
+                    rx="4"
+                    fill="none"
+                    stroke="var(--accent-gold)"
+                    stroke-width="2.5"
+                    transform="rotate(-10 50 20)"
+                  />
+                </svg>
               </div>
-              <h3>GPU-Accelerated Chirplet Transform</h3>
-              <p>
-                Developing a GPU-accelerated Chirplet Transform optimized for
-                real-time signal processing and analysis.
-              </p>
-              <div class="tag-list">
-                <span class="tag tag-status tag-done">Completed</span>
-                <span class="tag">GPU Computing</span>
-                <span class="tag">Signal Processing</span>
-                <span class="tag">EEG</span>
+              <div class="project-body">
+                <h3>Quantifying Biomechanical Movements</h3>
+                <p>
+                  System to measure ankle and spine movements in 3D using IMU
+                  sensors, stereo vision, and human segmentation with YOLO.
+                </p>
+                <div class="tag-list">
+                  <span class="tag tag-status tag-done">Completed</span>
+                  <span class="tag">Computer Vision</span>
+                  <span class="tag">IMU</span>
+                  <span class="tag">YOLO</span>
+                </div>
+                <div class="project-links-row">
+                  <a
+                    href="https://github.com/nishantkumar201/IMUSense"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                    ><i class="fab fa-github"></i> View Repository</a
+                  >
+                  <a href="projects/yolo-ece516.html" class="project-link"
+                    ><i class="fas fa-play"></i> View Project Page</a
+                  >
+                </div>
               </div>
-              <a
-                href="https://github.com/nishantkumar201/adaptive-chirplet-transform"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-                ><i class="fab fa-github"></i> View Repository</a
-              >
-              <a href="/projects/chirplet-transform.html" class="project-link">
-                <i class="fas fa-play"></i> View Animation</a
-              >
             </div>
 
             <div class="project-card">
-              <div class="project-icon">
-                <i class="fas fa-person-walking fa-fw"></i>
+              <div class="project-thumb">
+                <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                  <line
+                    x1="28"
+                    y1="20"
+                    x2="72"
+                    y2="20"
+                    stroke="var(--primary)"
+                    stroke-width="2.5"
+                  />
+                  <line
+                    x1="50"
+                    y1="8"
+                    x2="50"
+                    y2="32"
+                    stroke="var(--primary)"
+                    stroke-width="2.5"
+                  />
+                  <circle
+                    cx="28"
+                    cy="20"
+                    r="7"
+                    fill="none"
+                    stroke="var(--primary)"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="72"
+                    cy="20"
+                    r="7"
+                    fill="none"
+                    stroke="var(--primary)"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="50"
+                    cy="8"
+                    r="7"
+                    fill="none"
+                    stroke="var(--primary)"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="50"
+                    cy="32"
+                    r="7"
+                    fill="none"
+                    stroke="var(--primary)"
+                    stroke-width="2"
+                  />
+                  <circle cx="50" cy="20" r="3.5" fill="var(--primary)" />
+                </svg>
               </div>
-              <h3>Quantifying Biomechanical Movements</h3>
-              <p>
-                System to measure ankle and spine movements in 3D using IMU
-                sensors, stereo vision, and human segmentation with YOLO.
-              </p>
-              <div class="tag-list">
-                <span class="tag tag-status tag-done">Completed</span>
-                <span class="tag">Computer Vision</span>
-                <span class="tag">IMU</span>
-                <span class="tag">YOLO</span>
+              <div class="project-body">
+                <h3>Drone Development</h3>
+                <p>
+                  Custom drone with a 3D-printed frame and embedded flight
+                  controller. Currently going through a redesign.
+                </p>
+                <div class="tag-list">
+                  <span class="tag tag-status">In Progress</span>
+                  <span class="tag">Embedded C++</span>
+                  <span class="tag">Sensor Fusion</span>
+                  <span class="tag">3D Printing</span>
+                </div>
+                <div class="project-links-row">
+                  <a
+                    href="https://github.com/JaiWillems/nj-sandbox"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                    ><i class="fab fa-github"></i> View Repository</a
+                  >
+                </div>
               </div>
-              <a
-                href="https://github.com/nishantkumar201/IMUSense"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-                ><i class="fab fa-github"></i> View Repository</a
-              >
-              <a href="/projects/yolo-ece516.html" class="project-link"
-                ><i class="fas fa-play"></i> View Project Page</a
-              >
             </div>
           </div>
         </section>
 
         <!-- Awards -->
         <section id="awards">
-          <h2>Awards</h2>
-          <ul class="award-list">
-            <li>
-              <i class="fas fa-trophy"></i>
-              <div>
-                <strong>Best Poster Paper Award</strong>
-                <span
-                  >IEEE International Conference on Consumer Electronics (ICCE)
-                  2025</span
-                >
-              </div>
-            </li>
-            <li>
-              <i class="fas fa-trophy"></i>
-              <div>
-                <strong>Best Session Paper</strong>
-                <span
-                  >IEEE International Conference on Consumer Electronics (ICCE)
-                  2025</span
-                >
-              </div>
-            </li>
-          </ul>
+          <h2>
+            <svg viewBox="0 0 64 20">
+              <path
+                class="wave-path"
+                d="M0,10 Q8,0 16,10 T32,10 T48,10 T64,10"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+            Awards
+          </h2>
+          <div class="award-row">
+            <div class="award-pill">
+              <i class="fas fa-trophy"></i> Best Poster Paper Award
+              <span class="award-venue">&middot; ICCE 2025</span>
+            </div>
+            <div class="award-pill">
+              <i class="fas fa-trophy"></i> Best Session Paper
+              <span class="award-venue">&middot; ICCE 2025</span>
+            </div>
+          </div>
         </section>
 
         <!-- Contact -->
         <section id="contact">
-          <h2>Contact</h2>
+          <h2>
+            <svg viewBox="0 0 64 20">
+              <path
+                class="wave-path"
+                d="M0,10 Q8,0 16,10 T32,10 T48,10 T64,10"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+            Contact
+          </h2>
           <div class="contact-grid">
             <a id="email-link" href="#" class="contact-card">
               <i class="fas fa-envelope"></i>
@@ -440,7 +574,7 @@
     <!-- Footer (hidden — copyright in sidebar) -->
     <footer><p>&copy; 2026 Nishant Kumar</p></footer>
 
-    <!-- Email Obfuscation + Active Nav -->
+    <!-- Email Obfuscation + Active Nav + Wave Animations -->
     <script>
       const parts = [
         "nishant",
@@ -457,12 +591,15 @@
       document.addEventListener("DOMContentLoaded", () => {
         const link = document.getElementById("email-link");
         link.href = "mailto:" + email;
-        link.querySelector("span").textContent = email;
+        // Note: link text intentionally stays "Email" (not the raw address) —
+        // avoids exposing a scrapeable plaintext email in the visible link text.
 
-        // Active nav highlight on scroll
+        // Active nav highlight on scroll — trigger when a section crosses
+        // the vertical middle of the viewport, not by % visible (which broke
+        // for long sections like Publications that were always >30% visible)
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll(".sidebar-nav a");
-        const observer = new IntersectionObserver(
+        const navObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((e) => {
               if (e.isIntersecting) {
@@ -474,9 +611,39 @@
               }
             });
           },
-          { threshold: 0.3 },
+          { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
         );
-        sections.forEach((s) => observer.observe(s));
+        sections.forEach((s) => navObserver.observe(s));
+
+        // Hero wave: draw in on load (above the fold, so scroll-trigger doesn't apply)
+        const heroPath = document.getElementById("hero-wave-path");
+        if (
+          heroPath &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          const len = heroPath.getTotalLength();
+          heroPath.style.strokeDasharray = len;
+          heroPath.style.strokeDashoffset = len;
+          heroPath.style.transition = "stroke-dashoffset 1.4s ease";
+          requestAnimationFrame(() => {
+            heroPath.style.strokeDashoffset = 0;
+          });
+        }
+
+        // Section divider waves: draw in once, on scroll into view
+        const wavePaths = document.querySelectorAll("h2 svg .wave-path");
+        const waveObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                waveObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.6 },
+        );
+        wavePaths.forEach((p) => waveObserver.observe(p));
       });
     </script>
   </body>
