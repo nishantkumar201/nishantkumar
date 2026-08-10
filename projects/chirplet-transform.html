@@ -3,7 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GPU-Accelerated Chirplet Transform — Nishant Kumar</title>
+    <title>
+      GPU-Accelerated Adaptive Chirplet Transform (ACT) — Nishant Kumar
+    </title>
+    <meta
+      name="description"
+      content="GPU-Accelerated Adaptive Chirplet Transform (ACT) for real-time non-stationary signal decomposition using Matching Pursuit. Features hybrid CPU-GPU acceleration and EEG signal analysis."
+    />
+    <meta
+      name="keywords"
+      content="Chirplet Transform, Adaptive Chirplet Transform, ACT, Matching Pursuit, Signal Decomposition, GPU Acceleration, EEG Analysis, CUDA, Nishant Kumar, Steve Mann"
+    />
+
+    <!-- Open Graph / Social Previews -->
+    <meta
+      property="og:title"
+      content="GPU-Accelerated Adaptive Chirplet Transform — Nishant Kumar"
+    />
+    <meta
+      property="og:description"
+      content="Real-time non-stationary signal decomposition using an adaptive chirplet dictionary, accelerated via a hybrid CPU-GPU pipeline."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://www.kumar-nishant.com/projects/chirplet-transform"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="GPU-Accelerated Adaptive Chirplet Transform — Nishant Kumar"
+    />
+    <meta
+      name="twitter:description"
+      content="Real-time non-stationary signal decomposition using an adaptive chirplet dictionary, accelerated via a hybrid CPU-GPU pipeline."
+    />
+
+    <!-- Schema.org JSON-LD for Academic / Technical Indexing -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "Toward a Stable and Deployable Adaptive Chirplet Transform: Residual Projection, Hybrid GPU Acceleration, and Multi-Channel Scalability",
+        "author": [
+          {
+            "@type": "Person",
+            "name": "Nishant Kumar",
+            "url": "https://www.kumar-nishant.com"
+          },
+          {
+            "@type": "Person",
+            "name": "Steve Mann"
+          }
+        ],
+        "datePublished": "2026",
+        "owl:sameAs": "https://arxiv.org/abs/2607.16629",
+        "abstract": "The Adaptive Chirplet Transform decomposes a non-stationary signal into a small set of time-frequency atoms using Matching Pursuit. This project introduces a stable, GPU-accelerated framework avoiding algorithmic divergence through unit-normalized residual projections."
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,10 +99,11 @@
             opacity="0.85"
           />
         </svg>
-        <h1>GPU-Accelerated Chirplet Transform</h1>
+        <h1>GPU-Accelerated Adaptive Chirplet Transform (ACT)</h1>
         <p class="project-sub">
-          Real-time signal decomposition using an adaptive chirplet dictionary,
-          accelerated for large-scale runtime analysis.
+          Real-time non-stationary signal decomposition using an adaptive
+          chirplet dictionary, accelerated via a hybrid CPU-GPU pipeline for
+          large-scale runtime analysis.
         </p>
         <div class="project-links">
           <a
@@ -346,7 +407,7 @@
           what's left of the signal, no divergence, no wasted steps.
         </p>
 
-        <h3>Status</h3>
+        <h3>Status & Citation</h3>
         <p>
           Under review at IEEE Open Journal of Signal Processing (submitted July
           2026). Full derivation, benchmarks, and multi-channel scalability
@@ -360,6 +421,35 @@
             Scalability&rdquo;</a
           >, arXiv:2607.16629, 2026.
         </p>
+
+        <!-- Added BibTeX Citation Block for Academic Visibility -->
+        <div
+          style="
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-surface, #f5f5f5);
+            border-radius: 8px;
+            border: 1px solid var(--border-color, #ddd);
+          "
+        >
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.95rem">
+            <i class="fas fa-quote-left"></i> BibTeX Citation
+          </h4>
+          <pre
+            style="
+              font-family: &quot;IBM Plex Mono&quot;, monospace;
+              font-size: 0.8rem;
+              overflow-x: auto;
+              margin: 0;
+              color: var(--text-main, #333);
+            "
+          ><code>@article{kumar2026chirplet,
+  title={Toward a Stable and Deployable Adaptive Chirplet Transform: Residual Projection, Hybrid GPU Acceleration, and Multi-Channel Scalability},
+  author={Kumar, Nishant and Mann, Steve},
+  journal={arXiv preprint arXiv:2607.16629},
+  year={2026}
+}</code></pre>
+        </div>
       </section>
     </main>
 
