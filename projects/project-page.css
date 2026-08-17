@@ -45,6 +45,7 @@
   color: var(--text-muted);
   font-size: 0.95rem;
   margin-bottom: 18px;
+  max-width: 620px;
 }
 
 .project-links {
@@ -60,6 +61,8 @@
 .project-body p {
   font-size: 0.94rem;
   color: var(--text);
+  line-height: 1.7;
+  max-width: 680px;
 }
 
 /* Animation container */
@@ -112,9 +115,12 @@
   font-family: "IBM Plex Mono", monospace;
 }
 
+/* Progress bar — thickened from 4px and given a visible track so
+   single-digit-of-12 progress reads clearly at a glance */
 .progress-bar-wrap {
-  height: 4px;
+  height: 8px;
   background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 4px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -299,6 +305,34 @@
   font-size: 0.74rem;
   color: var(--text-muted);
   min-width: 120px;
+}
+
+/* Citation block on the chirplet project page — pulled out of inline
+   styles so it uses the site's real theme tokens instead of fallback
+   hex values that ignored --card-bg / --border */
+.citation-block {
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.citation-block h4 {
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.citation-block pre {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  overflow-x: auto;
+  margin: 0;
+  color: var(--text);
+  line-height: 1.5;
 }
 
 @media (max-width: 600px) {

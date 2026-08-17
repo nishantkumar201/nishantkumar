@@ -29,11 +29,12 @@
         <img src="Logo.png" alt="NK Logo" class="sidebar-logo" />
         <div class="sidebar-name">Nishant<br />Kumar</div>
         <div class="sidebar-tagline">
-          Wearable Systems &middot; Embedded Computing &middot; Rehabilitation
-          Technology
+          Wearable Systems &middot; Signal Processing &middot; Embedded
+          Computing
         </div>
         <nav class="sidebar-nav">
           <a href="#about"><i class="fas fa-user"></i> About</a>
+          <a href="#research"><i class="fas fa-flask"></i> Research</a>
           <a href="#publications"
             ><i class="fas fa-file-alt"></i> Publications</a
           >
@@ -67,7 +68,9 @@
         </svg>
         <h1 class="hero-name">Building Wearable Assistive Systems</h1>
         <p class="hero-tagline">
-          PhD student in Biomedical Engineering, University of Toronto.
+          PhD student in Biomedical Engineering at the University of Toronto,
+          working at the intersection of wearable systems, signal processing,
+          embedded computing, and rehabilitation technology.
         </p>
 
         <!-- About -->
@@ -85,18 +88,68 @@
           </h2>
           <div class="about-text">
             <p>
-              I'm an incoming PhD student in Biomedical Engineering at the
-              University of Toronto this September, working in the Dr. Kei
-              Masani Lab, with a focus on wearable assistive systems.
+              I'm a PhD student in Biomedical Engineering at the University of
+              Toronto, working in the Dr. Kei Masani Lab on wearable assistive
+              systems and rehabilitation technology.
             </p>
+
             <p>
               My Master's, under Dr. Steve Mann, focused on signal processing,
-              embedded computing, and hardware acceleration, applied to EEG
-              analysis and wearable sensing, aimed at making rehab technology
-              more accessible. This included GPU-accelerated adaptive
-              time&ndash;frequency methods and embedded EEG data acquisition
-              systems.
+              embedded computing, and hardware acceleration for biomedical
+              sensing, including GPU-accelerated adaptive time&ndash;frequency
+              methods and embedded EEG data acquisition systems aimed at making
+              rehabilitation technology more accessible. My current PhD research
+              builds on that systems perspective, applying sensing and
+              computational methods to wearable technologies for mobility and
+              rehabilitation.
             </p>
+
+            <p>
+              I'm particularly interested in the space between algorithms and
+              physical systems: developing signal-processing methods that are
+              fast and practical enough to run on real sensing hardware, in
+              service of assistive and rehabilitation technology. More broadly,
+              my work sits at the intersection of signal processing, embedded
+              sensing, and wearable assistive systems.
+            </p>
+          </div>
+        </section>
+
+        <!-- Research -->
+        <section id="research">
+          <h2>
+            <svg viewBox="0 0 64 20">
+              <path
+                class="wave-path"
+                d="M0,10 Q8,0 16,10 T32,10 T48,10 T64,10"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+            Research
+          </h2>
+          <div class="research-card">
+            <div class="research-tags">
+              Signal Processing &middot; GPU Computing &middot; EEG &middot;
+              Time-Frequency Analysis
+            </div>
+            <h3>Adaptive Chirplet Transform</h3>
+            <p>
+              My Master's research focused on developing and accelerating
+              adaptive chirplet-based methods for analyzing non-stationary
+              signals, including EEG, EMG, and radar signals whose frequency
+              content changes over time. I investigated how to make these
+              methods substantially more practical, including GPU acceleration,
+              residual-based decomposition, and improvements to numerical
+              stability and multi-channel scalability.
+            </p>
+            <p>
+              This work has been applied to biomedical signals including EEG,
+              with applications spanning sleep-state and seizure-state analysis.
+            </p>
+            <a href="projects/chirplet-transform.html" class="research-link">
+              Explore the research <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
         </section>
 
@@ -113,17 +166,38 @@
             </svg>
             Publications
           </h2>
+          <p class="section-intro">
+            My research has resulted in publications spanning adaptive
+            time-frequency signal processing, biomedical sensing, embedded
+            systems, and rehabilitation technology.
+          </p>
 
-          <nav class="pub-toc" aria-label="Publications quick jump">
-            <a href="#pub-journal">Journal &amp; Conference Papers</a>
+          <!-- <nav class="pub-toc" aria-label="Publications quick jump">
+            <a href="#pub-journal">Publications</a>
             <a href="#pub-proceedings">Edited Volumes / Proceedings</a>
-          </nav>
+          </nav> -->
 
-          <div class="pub-group-label" id="pub-journal">
-            Journal &amp; Conference Papers
-          </div>
-          <ul class="pub-list">
-            <li>
+          <div class="pub-group-label" id="pub-journal">Publications</div>
+          <ul class="pub-list" id="pub-main-list">
+            <li data-order="1" data-pinned="2" style="order: 2">
+              <strong>
+                <span class="pub-title-link"
+                  >Compact Order-Invariant Adaptive Chirplet Features for
+                  Patient-Specific EEG Seizure Prediction</span
+                >
+              </strong>
+
+              <span class="pub-authors">R. Jeong, N. Kumar, S. Mann</span>
+
+              <div class="pub-meta">
+                <span class="venue">IEEE Signal Processing Letters</span>
+
+                <span class="status-badge"
+                  >Under Review &middot; submitted August 2026</span
+                >
+              </div>
+            </li>
+            <li data-order="2" data-pinned="1" style="order: 1">
               <strong>
                 <a
                   href="https://arxiv.org/abs/2607.16629"
@@ -146,41 +220,7 @@
               </div>
             </li>
 
-            <li>
-              <strong>
-                <a
-                  href="https://ieeexplore.ieee.org/document/11454332"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="pub-title-link"
-                  >Adaptive Chirplet Transform-Based Neural Network for Seizure
-                  State Detection</a
-                >
-              </strong>
-              <span class="pub-authors">R. Jeong, N. Kumar, S. Mann</span>
-              <div class="pub-meta">
-                <span class="venue">IEEE ICAIIC 2025</span>
-              </div>
-            </li>
-
-            <li>
-              <strong>
-                <a
-                  href="https://ieeexplore.ieee.org/document/11512436/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="pub-title-link"
-                  >GPU-Accelerated Chirplet Transform: Scalable Runtime
-                  Profiling and Analysis</a
-                >
-              </strong>
-              <span class="pub-authors">N. Kumar, S. Mann</span>
-              <div class="pub-meta">
-                <span class="venue">IEEE ICST 2025</span>
-              </div>
-            </li>
-
-            <li>
+            <li data-order="5" data-pinned="3" style="order: 3">
               <strong>
                 <a
                   href="https://ieeexplore.ieee.org/abstract/document/11099439"
@@ -199,7 +239,41 @@
               </div>
             </li>
 
-            <li>
+            <li class="pub-extra" data-order="3" style="display: none">
+              <strong>
+                <a
+                  href="https://ieeexplore.ieee.org/document/11454332"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="pub-title-link"
+                  >Adaptive Chirplet Transform-Based Neural Network for Seizure
+                  State Detection</a
+                >
+              </strong>
+              <span class="pub-authors">R. Jeong, N. Kumar, S. Mann</span>
+              <div class="pub-meta">
+                <span class="venue">IEEE ICAIIC 2025</span>
+              </div>
+            </li>
+
+            <li class="pub-extra" data-order="4" style="display: none">
+              <strong>
+                <a
+                  href="https://ieeexplore.ieee.org/document/11512436/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="pub-title-link"
+                  >GPU-Accelerated Chirplet Transform: Scalable Runtime
+                  Profiling and Analysis</a
+                >
+              </strong>
+              <span class="pub-authors">N. Kumar, S. Mann</span>
+              <div class="pub-meta">
+                <span class="venue">IEEE ICST 2025</span>
+              </div>
+            </li>
+
+            <li class="pub-extra" data-order="6" style="display: none">
               <strong>
                 <a
                   href="https://ieeexplore.ieee.org/abstract/document/11155738"
@@ -219,7 +293,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="pub-extra" data-order="7" style="display: none">
               <strong>
                 <a
                   href="https://ieeexplore.ieee.org/document/10929845"
@@ -241,7 +315,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="pub-extra" data-order="8" style="display: none">
               <strong>
                 <a
                   href="https://ieeexplore.ieee.org/document/10930079/"
@@ -263,7 +337,7 @@
               </div>
             </li>
 
-            <li>
+            <li class="pub-extra" data-order="9" style="display: none">
               <strong>
                 <a
                   href="http://wearcam.org/XRwaterball_for_spinal_rehab_3698388.3699623.pdf"
@@ -283,10 +357,15 @@
             </li>
           </ul>
 
+          <button class="pub-show-more" id="pub-toggle-btn">
+            <i class="fas fa-chevron-down"></i>
+            <span>Show all publications</span>
+          </button>
+
           <div class="pub-group-label" id="pub-proceedings">
             Edited Volumes / Proceedings
           </div>
-          <ul class="pub-list">
+          <ul class="pub-list" id="pub-proc-list">
             <li>
               <strong>
                 <a
@@ -295,7 +374,7 @@
                   rel="noopener noreferrer"
                   class="pub-title-link"
                   >Proceedings of the 27th Annual Mersivity / Water-HCI
-                  Symposium (December Edition)</a
+                  Symposium (December 2025)</a
                 >
               </strong>
               <span class="pub-authors"><em>Proceedings Chair</em></span>
@@ -330,91 +409,12 @@
             </svg>
             Projects
           </h2>
+          <p class="section-intro">
+            Alongside my research, I build software and hardware systems to
+            explore ideas in sensing, computation, and human movement.
+          </p>
 
           <div class="project-grid">
-            <div class="project-card">
-              <div class="project-thumb">
-                <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M0,20 Q10,4 20,20 T40,20 T60,20 T80,20 T100,20"
-                    stroke="var(--accent-coral)"
-                    stroke-width="2.5"
-                    fill="none"
-                  />
-                </svg>
-              </div>
-              <div class="project-body">
-                <h3>GPU-Accelerated Chirplet Transform</h3>
-                <p>
-                  Developing a GPU-accelerated Chirplet Transform optimized for
-                  real-time signal processing and analysis.
-                </p>
-                <div class="tag-list">
-                  <span class="tag tag-status tag-done">Completed</span>
-                  <span class="tag">GPU Computing</span>
-                  <span class="tag">Signal Processing</span>
-                  <span class="tag">EEG</span>
-                </div>
-                <div class="project-links-row">
-                  <a
-                    href="https://github.com/nishantkumar201/adaptive-chirplet-transform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="project-link"
-                    ><i class="fab fa-github"></i> View Repository</a
-                  >
-                  <a
-                    href="projects/chirplet-transform.html"
-                    class="project-link"
-                    ><i class="fas fa-play"></i> View Project Page</a
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-thumb">
-                <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                  <rect
-                    x="30"
-                    y="8"
-                    width="40"
-                    height="24"
-                    rx="4"
-                    fill="none"
-                    stroke="var(--accent-gold)"
-                    stroke-width="2.5"
-                    transform="rotate(-10 50 20)"
-                  />
-                </svg>
-              </div>
-              <div class="project-body">
-                <h3>Quantifying Biomechanical Movements</h3>
-                <p>
-                  System to measure ankle and spine movements in 3D using IMU
-                  sensors, stereo vision, and human segmentation with YOLO.
-                </p>
-                <div class="tag-list">
-                  <span class="tag tag-status tag-done">Completed</span>
-                  <span class="tag">Computer Vision</span>
-                  <span class="tag">IMU</span>
-                  <span class="tag">YOLO</span>
-                </div>
-                <div class="project-links-row">
-                  <a
-                    href="https://github.com/nishantkumar201/IMUSense"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="project-link"
-                    ><i class="fab fa-github"></i> View Repository</a
-                  >
-                  <a href="projects/yolo-ece516.html" class="project-link"
-                    ><i class="fas fa-play"></i> View Project Page</a
-                  >
-                </div>
-              </div>
-            </div>
-
             <div class="project-card">
               <div class="project-thumb">
                 <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
@@ -508,14 +508,23 @@
             </svg>
             Awards
           </h2>
+          <p class="section-intro">
+            Recognition received for research contributions and technical work.
+          </p>
           <div class="award-row">
             <div class="award-pill">
               <i class="fas fa-trophy"></i> Best Poster Paper Award
-              <span class="award-venue">&middot; ICCE 2025</span>
+              <span class="award-venue">&middot; IEEE ICCE 2025</span>
             </div>
             <div class="award-pill">
               <i class="fas fa-trophy"></i> Best Session Paper
-              <span class="award-venue">&middot; ICCE 2025</span>
+              <span class="award-venue">&middot; IEEE ICCE 2025</span>
+            </div>
+            <div class="award-pill">
+              <i class="fas fa-award"></i> Pauline Wong Graduate Scholarship
+              <span class="award-venue"
+                >&middot; University of Toronto &middot; 2026</span
+              >
             </div>
           </div>
         </section>
@@ -533,6 +542,9 @@
             </svg>
             Contact
           </h2>
+          <p class="contact-intro">
+            Reach out about research, collaborations, or anything below.
+          </p>
           <div class="contact-grid">
             <a id="email-link" href="#" class="contact-card">
               <i class="fas fa-envelope"></i>
@@ -614,6 +626,100 @@
           { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
         );
         sections.forEach((s) => navObserver.observe(s));
+
+        // Publications: expand/collapse with a FLIP slide animation, so
+        // pinned items (e.g. ICCAD/ICAIIC) visibly move into their true
+        // chronological position instead of new items just appending below.
+        const pubToggleBtn = document.getElementById("pub-toggle-btn");
+        const pubMainList = document.getElementById("pub-main-list");
+
+        function updatePubEdgeRadius() {
+          const visible = Array.from(pubMainList.querySelectorAll("li")).filter(
+            (li) => li.style.display !== "none",
+          );
+          visible.sort(
+            (a, b) => parseFloat(a.style.order) - parseFloat(b.style.order),
+          );
+          pubMainList
+            .querySelectorAll("li")
+            .forEach((li) =>
+              li.classList.remove("pub-visual-first", "pub-visual-last"),
+            );
+          if (visible.length) {
+            visible[0].classList.add("pub-visual-first");
+            visible[visible.length - 1].classList.add("pub-visual-last");
+          }
+        }
+
+        if (pubToggleBtn && pubMainList) {
+          updatePubEdgeRadius();
+          let expanded = false;
+
+          pubToggleBtn.addEventListener("click", () => {
+            const items = Array.from(pubMainList.querySelectorAll("li"));
+            const firstRects = new Map();
+            items.forEach((li) => {
+              if (li.style.display !== "none") {
+                firstRects.set(li, li.getBoundingClientRect());
+              }
+            });
+
+            expanded = !expanded;
+
+            if (expanded) {
+              // Reveal the extras and let every item settle into its true
+              // chronological order.
+              items.forEach((li) => {
+                if (li.classList.contains("pub-extra")) {
+                  li.style.display = "";
+                  li.style.opacity = "0";
+                }
+                li.style.order = li.dataset.order;
+              });
+            } else {
+              // Collapse back to the pinned 3, restoring original order.
+              items.forEach((li) => {
+                if (li.classList.contains("pub-extra")) {
+                  li.style.display = "none";
+                } else {
+                  li.style.order = li.dataset.pinned;
+                }
+              });
+            }
+
+            updatePubEdgeRadius();
+
+            // FLIP: measure new positions, offset back to the old ones,
+            // then animate to zero so everything visibly slides.
+            requestAnimationFrame(() => {
+              items.forEach((li) => {
+                if (li.style.display === "none") return;
+                const last = li.getBoundingClientRect();
+                const first = firstRects.get(li);
+                const deltaY = first ? first.top - last.top : 12;
+                li.style.transition = "none";
+                li.style.transform = `translateY(${deltaY}px)`;
+                if (!first) li.style.opacity = "0";
+              });
+              requestAnimationFrame(() => {
+                items.forEach((li) => {
+                  if (li.style.display === "none") return;
+                  li.style.transition =
+                    "transform 0.45s ease, opacity 0.45s ease";
+                  li.style.transform = "translateY(0)";
+                  li.style.opacity = "1";
+                });
+              });
+            });
+
+            pubToggleBtn.querySelector("span").textContent = expanded
+              ? "Show fewer publications"
+              : "Show all publications";
+            pubToggleBtn.querySelector("i").className = expanded
+              ? "fas fa-chevron-up"
+              : "fas fa-chevron-down";
+          });
+        }
 
         // Hero wave: draw in on load (above the fold, so scroll-trigger doesn't apply)
         const heroPath = document.getElementById("hero-wave-path");

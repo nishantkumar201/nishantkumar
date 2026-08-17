@@ -6,7 +6,7 @@
   --text: #111111;
   --text-muted: #5a564f;
   --primary: #0a5c82; /* about / hero wave */
-  --accent: #0083b3;
+  --accent: #0083b3; /* research */
   --accent-gold: #a07000; /* publications */
   --accent-coral: #c1502e; /* projects */
   --accent-green: #3a7a4e; /* awards */
@@ -86,7 +86,7 @@ body {
 .sidebar-tagline {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.68rem;
-  color: rgba(245, 239, 232, 0.55);
+  color: rgba(245, 239, 232, 0.6);
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1.6;
@@ -109,7 +109,8 @@ body {
   text-decoration: none;
   font-size: 0.78rem;
   font-weight: 500;
-  color: rgba(245, 239, 232, 0.6);
+  /* was 0.6 alpha, then 0.74 — still too low against navy, pushed further */
+  color: rgba(245, 239, 232, 0.86);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition:
@@ -121,7 +122,7 @@ body {
   font-size: 0.74rem;
   width: 14px;
   text-align: center;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .sidebar-nav a:hover,
@@ -188,7 +189,6 @@ section:last-of-type {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.85rem;
   color: var(--text-muted);
-  max-width: 500px;
 }
 
 /* SECTION HEADINGS: wave-divider replaces old dash marker */
@@ -237,6 +237,9 @@ h2 svg .wave-path.in-view {
 #about h2 svg .wave-path {
   stroke: var(--primary);
 }
+#research h2 svg .wave-path {
+  stroke: var(--accent);
+}
 #publications h2 svg .wave-path {
   stroke: var(--accent-gold);
 }
@@ -253,8 +256,55 @@ h2 svg .wave-path.in-view {
 /* ABOUT */
 .about-text p {
   margin-bottom: 12px;
-  max-width: 100%;
   font-size: 0.94rem;
+}
+
+.section-intro {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 22px;
+}
+
+/* RESEARCH */
+.research-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+.research-card .research-tags {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.research-card h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+.research-card p {
+  font-size: 0.88rem;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.research-card .research-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 4px;
+  transition: color 0.15s;
+}
+.research-card .research-link:hover {
+  color: var(--accent-coral);
 }
 
 /* PUBLICATIONS */
@@ -319,6 +369,21 @@ h2 svg .wave-path.in-view {
   border-radius: 0 0 8px 8px;
 }
 .pub-list li:only-child {
+  border-radius: 8px;
+}
+/* Once flex `order` diverges from DOM order (pinned vs. chronological
+   publication views), rounding must track visual position instead of
+   DOM position — handled via JS-assigned classes. */
+#pub-main-list li {
+  border-radius: 0;
+}
+#pub-main-list li.pub-visual-first {
+  border-radius: 8px 8px 0 0;
+}
+#pub-main-list li.pub-visual-last {
+  border-radius: 0 0 8px 8px;
+}
+#pub-main-list li.pub-visual-first.pub-visual-last {
   border-radius: 8px;
 }
 .pub-list li strong {
@@ -390,6 +455,45 @@ h2 svg .wave-path.in-view {
   padding: 2px 8px;
   border-radius: 4px;
   letter-spacing: 0.04em;
+}
+
+/* Selected vs. full publication list */
+.pub-list.pub-hidden {
+  display: none;
+}
+.pub-show-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 14px;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+.pub-show-more:hover {
+  border-color: var(--accent-gold);
+  background: var(--card-bg);
+}
+.pub-show-more--inline {
+  margin: 0 0 0 auto;
+  padding: 3px 10px;
+  font-size: 0.65rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+.pub-group-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* PROJECTS — richer cards with thumbnail */
@@ -516,6 +620,11 @@ h2 svg .wave-path.in-view {
 }
 
 /* CONTACT */
+.contact-intro {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
 .contact-grid {
   display: flex;
   flex-wrap: wrap;
