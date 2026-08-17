@@ -15,7 +15,6 @@
       content="Chirplet Transform, Adaptive Chirplet Transform, ACT, Matching Pursuit, Signal Decomposition, GPU Acceleration, EEG Analysis, CUDA, Nishant Kumar, Steve Mann"
     />
 
-    <!-- Open Graph / Social Previews -->
     <meta
       property="og:title"
       content="GPU-Accelerated Adaptive Chirplet Transform — Nishant Kumar"
@@ -27,28 +26,8 @@
     <meta property="og:type" content="article" />
     <meta
       property="og:url"
-      content="https://www.kumar-nishant.com/projects/chirplet-transform"
+      content="https://www.kumar-nishant.com/research/chirplet-transform"
     />
-    <!--
-      TODO: no og:image / twitter:image is set, so shared links (LinkedIn,
-      Twitter, etc.) will render with no preview thumbnail. Add something like:
-        <meta property="og:image" content="https://www.kumar-nishant.com/projects/chirplet-og.png" />
-        <meta name="twitter:image" content="https://www.kumar-nishant.com/projects/chirplet-og.png" />
-      once a share image exists (e.g. a static export of the architecture
-      diagram or a screenshot of the animation).
-    -->
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="GPU-Accelerated Adaptive Chirplet Transform — Nishant Kumar"
-    />
-    <meta
-      name="twitter:description"
-      content="Real-time non-stationary signal decomposition using an adaptive chirplet dictionary, accelerated via a hybrid CPU-GPU pipeline."
-    />
-
     <!-- Schema.org JSON-LD for Academic / Technical Indexing -->
     <script type="application/ld+json">
       {
@@ -89,8 +68,8 @@
 
   <body>
     <main class="project-page">
-      <a href="../index.html#projects" class="back-link"
-        ><i class="fas fa-arrow-left"></i> Back to projects</a
+      <a href="../index.html#research" class="back-link"
+        ><i class="fas fa-arrow-left"></i> Back to Research</a
       >
 
       <header class="project-header">
@@ -147,13 +126,6 @@
           added; by the final chirplet, residual energy drops to about 4% of the
           original signal. Full technical breakdown below the animation.
         </p>
-        <!--
-          NOTE: the exact chirplet count and residual percentages below are
-          driven by chirplet_animation_data.json at runtime — the JS sets
-          the scrubber's max dynamically from the real data. Keep the prose
-          numbers here ("about 4%", "12 chirplets" further down) in sync
-          with whatever that JSON file actually contains if it's regenerated.
-        -->
       </section>
 
       <section class="anim-wrap" id="chirplet-anim">
