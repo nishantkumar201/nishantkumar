@@ -86,7 +86,8 @@ body {
 .sidebar-tagline {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.68rem;
-  color: rgba(245, 239, 232, 0.6);
+  /* FIX: was 0.6 alpha — too low contrast against navy background, bumped for legibility */
+  color: rgba(245, 239, 232, 0.78);
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1.6;
@@ -159,35 +160,35 @@ section:last-of-type {
 }
 
 /* HERO */
-.hero-wave {
-  width: 100%;
-  max-width: 460px;
-  height: 56px;
-  display: block;
-  margin: 44px 0 8px;
+.hero {
+  padding: 56px 0 12px;
 }
 .hero-eyebrow {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
 }
 .hero-name {
   font-family: "Fraunces", serif;
   font-optical-sizing: auto;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 2.7rem;
   line-height: 1.05;
-  letter-spacing: -0.01em;
-  margin-bottom: 8px;
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
   color: var(--text);
 }
 .hero-tagline {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
   color: var(--text-muted);
 }
 
@@ -269,7 +270,10 @@ h2 svg .wave-path.in-view {
 .research-card {
   background: var(--card-bg);
   border-radius: 12px;
-  padding: 22px 24px;
+  /* FIX: slightly more padding + a left accent border so a single card
+     reads as an intentional "flagship" item rather than a sparse placeholder */
+  padding: 28px 30px;
+  border-left: 3px solid var(--accent);
 }
 .research-card .research-tags {
   font-family: "IBM Plex Mono", monospace;
@@ -439,7 +443,9 @@ h2 svg .wave-path.in-view {
   gap: 4px;
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--gold);
+  /* FIX: var(--gold) was never defined anywhere in :root — fell back to
+     inherited text color silently. Correct token is --accent-gold. */
+  color: var(--accent-gold);
   background: var(--gold-bg);
   padding: 2px 8px;
   border-radius: 4px;
@@ -483,13 +489,8 @@ h2 svg .wave-path.in-view {
   border-color: var(--accent-gold);
   background: var(--card-bg);
 }
-.pub-show-more--inline {
-  margin: 0 0 0 auto;
-  padding: 3px 10px;
-  font-size: 0.65rem;
-  text-transform: none;
-  letter-spacing: normal;
-}
+/* NOTE: .pub-show-more--inline removed — it was unused dead CSS
+   (no element in the HTML has this class). */
 .pub-group-label {
   display: flex;
   align-items: center;
@@ -499,7 +500,14 @@ h2 svg .wave-path.in-view {
 /* PROJECTS — richer cards with thumbnail */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  /* FIX: auto-fill reserved space for phantom empty columns when only one
+     card exists, leaving a large awkward gutter on wide screens.
+     auto-fit + justify-content:start collapses that space and left-aligns
+     the real cards; behavior converges to the same grid once more cards
+     are added. Capped max track width so cards don't stretch too wide
+     when there's only one or two. */
+  grid-template-columns: repeat(auto-fit, minmax(230px, 340px));
+  justify-content: start;
   gap: 16px;
   max-width: 100%;
 }
@@ -714,5 +722,11 @@ footer {
   }
   .project-grid {
     grid-template-columns: 1fr;
+  }
+  .hero {
+    padding: 32px 0 8px;
+  }
+  .hero-name {
+    font-size: 2rem;
   }
 }

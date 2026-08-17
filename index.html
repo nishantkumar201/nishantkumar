@@ -48,30 +48,15 @@
       <!-- Main Content -->
       <main class="main-content">
         <!-- Hero -->
-        <div class="hero-eyebrow">Biomedical Engineering</div>
-        <svg
-          class="hero-wave"
-          viewBox="0 0 460 56"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            id="hero-wave-path"
-            d="M0,28 C 18,9 36,9 54,28 C 72,47 90,47 108,28 C 126,9 144,9 162,28
-               C 180,47 198,47 216,28 C 224,18 228,4 234,4 C 240,4 244,18 252,28
-               C 266,44 282,44 298,28 C 316,12 334,12 352,28 C 370,44 388,44 406,28
-               C 424,12 442,12 460,28"
-            stroke="var(--primary)"
-            stroke-width="2.3"
-            fill="none"
-            opacity="0.85"
-          />
-        </svg>
-        <h1 class="hero-name">Building Wearable Assistive Systems</h1>
-        <p class="hero-tagline">
-          PhD student in Biomedical Engineering at the University of Toronto,
-          working at the intersection of wearable systems, signal processing,
-          embedded computing, and rehabilitation technology.
-        </p>
+        <div class="hero">
+          <div class="hero-eyebrow">Biomedical Engineering</div>
+          <h1 class="hero-name">Building Wearable Assistive Systems</h1>
+          <p class="hero-tagline">
+            PhD student in Biomedical Engineering at the University of Toronto,
+            working at the intersection of wearable systems, signal processing,
+            embedded computing, and rehabilitation technology.
+          </p>
+        </div>
 
         <!-- About -->
         <section id="about">
@@ -171,11 +156,6 @@
             time-frequency signal processing, biomedical sensing, embedded
             systems, and rehabilitation technology.
           </p>
-
-          <!-- <nav class="pub-toc" aria-label="Publications quick jump">
-            <a href="#pub-journal">Publications</a>
-            <a href="#pub-proceedings">Edited Volumes / Proceedings</a>
-          </nav> -->
 
           <div class="pub-group-label" id="pub-journal">Publications</div>
           <ul class="pub-list" id="pub-main-list">
@@ -718,21 +698,6 @@
             pubToggleBtn.querySelector("i").className = expanded
               ? "fas fa-chevron-up"
               : "fas fa-chevron-down";
-          });
-        }
-
-        // Hero wave: draw in on load (above the fold, so scroll-trigger doesn't apply)
-        const heroPath = document.getElementById("hero-wave-path");
-        if (
-          heroPath &&
-          !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ) {
-          const len = heroPath.getTotalLength();
-          heroPath.style.strokeDasharray = len;
-          heroPath.style.strokeDashoffset = len;
-          heroPath.style.transition = "stroke-dashoffset 1.4s ease";
-          requestAnimationFrame(() => {
-            heroPath.style.strokeDashoffset = 0;
           });
         }
 

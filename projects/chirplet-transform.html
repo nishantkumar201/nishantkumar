@@ -29,6 +29,14 @@
       property="og:url"
       content="https://www.kumar-nishant.com/projects/chirplet-transform"
     />
+    <!--
+      TODO: no og:image / twitter:image is set, so shared links (LinkedIn,
+      Twitter, etc.) will render with no preview thumbnail. Add something like:
+        <meta property="og:image" content="https://www.kumar-nishant.com/projects/chirplet-og.png" />
+        <meta name="twitter:image" content="https://www.kumar-nishant.com/projects/chirplet-og.png" />
+      once a share image exists (e.g. a static export of the architecture
+      diagram or a screenshot of the animation).
+    -->
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -59,7 +67,7 @@
           }
         ],
         "datePublished": "2026",
-        "owl:sameAs": "https://arxiv.org/abs/2607.16629",
+        "sameAs": "https://arxiv.org/abs/2607.16629",
         "abstract": "The Adaptive Chirplet Transform decomposes a non-stationary signal into a small set of time-frequency atoms using Matching Pursuit. This project introduces a stable, GPU-accelerated framework avoiding algorithmic divergence through unit-normalized residual projections."
       }
     </script>
@@ -135,11 +143,17 @@
           The animation below shows a real decomposition on 2 seconds of EEG
           (512 samples at 256&nbsp;Hz) from channel 1, one of two frontal
           electrodes, of Patient&nbsp;1 in the Bitbrain sleep EEG dataset. Watch
-          the approximation build up and the residual shrink as each of 12
-          chirplets is added; by the final chirplet, residual energy drops to
-          about 4% of the original signal. Full technical breakdown below the
-          animation.
+          the approximation build up and the residual shrink as each chirplet is
+          added; by the final chirplet, residual energy drops to about 4% of the
+          original signal. Full technical breakdown below the animation.
         </p>
+        <!--
+          NOTE: the exact chirplet count and residual percentages below are
+          driven by chirplet_animation_data.json at runtime — the JS sets
+          the scrubber's max dynamically from the real data. Keep the prose
+          numbers here ("about 4%", "12 chirplets" further down) in sync
+          with whatever that JSON file actually contains if it's regenerated.
+        -->
       </section>
 
       <section class="anim-wrap" id="chirplet-anim">
@@ -207,13 +221,13 @@
             </div>
             <p class="chart-caption">
               Normalized residual energy after each chirplet is subtracted from
-              the signal. It drops to ~4% after 12 chirplets.
+              the signal.
             </p>
           </div>
 
           <div class="controls">
             <button id="btn-play"><i class="fas fa-play"></i> Play</button>
-            <input type="range" min="0" max="9" value="0" id="scrubber" />
+            <input type="range" min="0" max="0" value="0" id="scrubber" />
             <span id="step-label">—</span>
           </div>
         </div>
