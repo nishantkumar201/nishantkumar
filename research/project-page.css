@@ -340,3 +340,12 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Readable technical details */
+.project-page { max-width: 860px; }
+.project-page section { padding-top: 20px; padding-bottom: 20px; }
+.chart-caption, .chart-label, .legend { color: #514b43; }
+.benchmark-wrap { overflow-x: auto; margin: 18px 0; }
+.benchmark-wrap table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.benchmark-wrap th, .benchmark-wrap td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border); }
+.benchmark-wrap th { background: var(--card-bg); }

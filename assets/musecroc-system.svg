@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-labelledby="title desc">
+<title id="title">MuseCroc embedded acquisition system</title><desc id="desc">Muse headband sends EEG and motion data over Bluetooth Low Energy to an ESP32 acquisition module, which stores recordings on SD card and optionally communicates with another ESP32 node through ESP-NOW. Device drawings are schematic.</desc>
+<defs>
+ <linearGradient id="navy" x2="0" y2="1"><stop stop-color="#345772"/><stop offset="1" stop-color="#1a3c5a"/></linearGradient>
+ <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1L6 4L1 7" fill="none" stroke="#0a5c82" stroke-width="1.6" stroke-linecap="round"/></marker>
+</defs>
+<rect width="600" height="420" rx="18" fill="#f5efe8"/>
+<g font-family="Arial, sans-serif" fill="#1a3c5a">
+ <text x="28" y="34" font-size="11" letter-spacing="1.8" fill="#5a564f">EMBEDDED EEG ACQUISITION</text>
+ <rect x="24" y="54" width="552" height="141" rx="14" fill="#fffaf4" stroke="#ddd5ca"/>
+ <!-- Stylized open headband with contact pads -->
+ <path d="M53 131C53 65 171 65 171 131" fill="none" stroke="#1a3c5a" stroke-width="12" stroke-linecap="round"/>
+ <path d="M59 120C67 77 157 77 165 120" fill="none" stroke="#6a8794" stroke-width="3"/>
+ <rect x="47" y="118" width="17" height="25" rx="6" fill="#345772"/><rect x="160" y="118" width="17" height="25" rx="6" fill="#345772"/>
+ <circle cx="83" cy="89" r="5" fill="#c6aa78"/><circle cx="143" cy="89" r="5" fill="#c6aa78"/>
+ <text x="112" y="167" font-size="14" text-anchor="middle" font-weight="600">Muse headband</text>
+ <!-- Wireless transfer -->
+ <path d="M197 122H315" stroke="#0a5c82" stroke-width="2" marker-end="url(#arrow)"/>
+ <rect x="214" y="83" width="86" height="25" rx="12" fill="#e4efef"/>
+ <text x="257" y="100" font-size="11" text-anchor="middle" fill="#0a5c82">Bluetooth LE</text>
+ <text x="257" y="150" font-size="11" text-anchor="middle" fill="#5a564f">EEG + motion</text>
+ <!-- Schematic acquisition board -->
+ <rect x="348" y="80" width="144" height="61" rx="9" fill="url(#navy)"/>
+ <rect x="377" y="91" width="58" height="38" rx="4" fill="#d5d9d3"/>
+ <text x="406" y="115" font-size="12" text-anchor="middle">ESP32</text>
+ <path d="M446 93h9v8h10v-8h10v8" fill="none" stroke="#c6aa78" stroke-width="2"/>
+ <g fill="#c6aa78"><circle cx="358" cy="94" r="2"/><circle cx="358" cy="104" r="2"/><circle cx="358" cy="114" r="2"/><circle cx="358" cy="124" r="2"/></g>
+ <rect x="482" y="103" width="14" height="19" rx="2" fill="#a9b9c0"/>
+ <text x="420" y="167" font-size="14" text-anchor="middle" font-weight="600">Acquisition module</text>
+ <!-- Two independent outputs -->
+ <path d="M420 195V219H156V246M420 219V246" fill="none" stroke="#0a5c82" stroke-width="1.8"/>
+ <rect x="24" y="246" width="264" height="125" rx="14" fill="#fffaf4" stroke="#ddd5ca"/>
+ <rect x="312" y="246" width="264" height="125" rx="14" fill="#f0eee6" stroke="#b5c6c8" stroke-dasharray="5 5"/>
+ <!-- SD card -->
+ <path d="M48 278h29l13 13v47H48z" fill="#1a3c5a"/>
+ <g stroke="#c6aa78" stroke-width="3"><path d="M56 282v10M63 282v10M70 282v10"/></g>
+ <text x="68" y="321" fill="#f5efe8" font-size="12" text-anchor="middle">SD</text>
+ <text x="108" y="293" font-size="14" font-weight="600">Local recording</text>
+ <text x="108" y="316" font-size="12" fill="#5a564f">Save data to SD card</text>
+ <!-- Optional receiving node -->
+ <rect x="337" y="285" width="48" height="34" rx="5" fill="#345772"/><rect x="349" y="293" width="24" height="18" rx="2" fill="#c5d0cd"/>
+ <path d="M349 274Q361 264 373 274M344 268Q361 253 378 268" fill="none" stroke="#0a5c82" stroke-width="1.8" stroke-linecap="round"/>
+ <text x="402" y="293" font-size="14" font-weight="600">ESP-NOW link</text>
+ <text x="402" y="316" font-size="12" fill="#5a564f">To another ESP32 node</text>
+ <text x="402" y="342" font-size="10" letter-spacing="1" fill="#0a5c82">OPTIONAL</text>
+ <text x="300" y="398" text-anchor="middle" font-size="10" fill="#5a564f">SYSTEM CONCEPT · DEVICE SHAPES ARE SCHEMATIC</text>
+</g>
+</svg>

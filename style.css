@@ -730,3 +730,51 @@ footer {
     font-size: 2rem;
   }
 }
+
+/* Refined portfolio layout */
+.main-content { max-width: 1160px; padding-inline: clamp(24px, 4vw, 48px); }
+.main-content section { padding-top: 30px; padding-bottom: 24px; }
+.hero { padding-top: 44px; }
+.hero-name { font-size: clamp(1.9rem, 3.2vw, 2.65rem); line-height: 1.18; max-width: 100%; }
+.about-text, .hero-tagline, .section-intro { max-width: 100%; }
+.hero-tagline { font-family: "IBM Plex Sans", sans-serif; }
+.research-card { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: center; padding: 26px; }
+.research-copy { min-width: 0; }
+.research-card .research-tags { font-size: .62rem; line-height: 1.7; }
+.research-card p { max-width: 100%; }
+.act-preview { display: block; min-width: 0; text-decoration: none; color: var(--text-muted); }
+.act-preview svg { display: block; width: 100%; background: var(--bg); border-radius: 8px; }
+.act-preview span { display: block; font-size: .76rem; line-height: 1.5; margin-top: 10px; }
+.act-preview:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
+.project-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+.eeg-card { grid-column: auto; border-top: 3px solid var(--primary); }
+.project-card { min-width: 0; }
+.project-card .project-body { padding: 22px; }
+.project-card .project-body h3 { font-family: "Fraunces", serif; font-size: 1.15rem; line-height: 1.35; }
+.project-card .project-body p { font-size: .9rem; line-height: 1.65; }
+.project-thumb { height: 72px; }
+@media (max-width: 1000px) {
+ .research-card { grid-template-columns: 1fr; gap: 20px; }
+ .act-preview { max-width: 520px; }
+}
+@media (max-width: 760px) {
+ .project-grid { grid-template-columns: 1fr; }
+ .research-card { padding: 22px; }
+ .main-content { padding-inline: 24px; }
+}
+
+/* Text follows the full width of its containing column. */
+.about-text, .hero-tagline, .section-intro, .research-copy p, .project-body p { width: 100%; max-width: 100%; }
+
+/* Research and independent engineering work */
+.muse-research-card { margin-top: 22px; border-left-color: var(--primary); }
+.muse-research-card .research-copy { padding: 0; }
+.muse-research-card .project-links-row { flex-wrap: wrap; gap: 14px; }
+.muse-concept { margin: 0; min-width: 0; background: var(--bg); border-radius: 8px; padding: 12px; }
+.muse-concept svg { width: 100%; display: block; }
+.muse-concept figcaption { font-size: .72rem; color: var(--text-muted); text-align: center; margin-top: 4px; }
+#projects .project-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+#projects .project-card { max-width: 360px; }
+
+.muse-concept { padding: 0; background: transparent; }
+.muse-concept img { display: block; width: 100%; height: auto; }

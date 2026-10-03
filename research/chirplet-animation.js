@@ -32,10 +32,10 @@
   }
 
   function initCharts() {
-    const labels = Array.from({ length: DATA.epoch_length }, (_, i) => i);
+    const labels = Array.from({ length: DATA.epoch_length }, (_, i) => (i / DATA.fs).toFixed(2));
     const isDark = matchMedia("(prefers-color-scheme: dark)").matches;
     const gridColor = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
-    const tickColor = isDark ? "#888" : "#aaa";
+    const tickColor = "#5a564f";
 
     if (chartMain) chartMain.destroy();
     if (chartNorm) chartNorm.destroy();
@@ -90,8 +90,9 @@
         animation: { duration: 400 },
         plugins: { legend: { display: false }, tooltip: { enabled: false } },
         scales: {
-          x: { display: false },
+          x: { grid: { color: gridColor }, ticks: { color: tickColor, maxTicksLimit: 5 }, title: { display: true, text: "Time (s)", color: tickColor } },
           y: {
+            title: { display: true, text: "Amplitude (source data units)", color: tickColor },
             grid: { color: gridColor },
             ticks: { color: tickColor, font: { size: 11 }, maxTicksLimit: 5 },
           },
@@ -105,7 +106,7 @@
         labels: Array.from({ length: ORDER }, (_, i) => `C${i + 1}`),
         datasets: [
           {
-            label: "Norm residue",
+            label: "Residual energy fraction",
             data: new Array(ORDER).fill(null),
             borderColor: "#D85A30",
             backgroundColor: "rgba(216,90,48,0.08)",
@@ -151,12 +152,12 @@
     chartMain.update();
 
     const normData = Array.from({ length: ORDER }, (_, i) =>
-      i <= step ? DATA.steps[i].norm_residue : null,
+      i <= step ? DATA.steps[i].norm_residue ** 2 : null,
     );
     chartNorm.data.datasets[0].data = normData;
     chartNorm.update();
 
-    const explained = ((1 - s.norm_residue) * 100).toFixed(1);
+    const explained = ((1 - s.norm_residue ** 2) * 100).toFixed(1);
     document.getElementById("m-step").textContent = `${step + 1} / ${ORDER}`;
     document.getElementById("m-explained").textContent = `${explained}%`;
     document.getElementById("m-norm").textContent = s.norm_residue.toFixed(3);

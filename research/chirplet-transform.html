@@ -1,35 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>
       GPU-Accelerated Adaptive Chirplet Transform (ACT) — Nishant Kumar
     </title>
-    <meta
-      name="description"
-      content="GPU-Accelerated Adaptive Chirplet Transform (ACT) for real-time non-stationary signal decomposition using Matching Pursuit. Features hybrid CPU-GPU acceleration and EEG signal analysis."
-    />
-    <meta
-      name="keywords"
-      content="Chirplet Transform, Adaptive Chirplet Transform, ACT, Matching Pursuit, Signal Decomposition, GPU Acceleration, EEG Analysis, CUDA, Nishant Kumar, Steve Mann"
-    />
-
-    <meta
-      property="og:title"
-      content="GPU-Accelerated Adaptive Chirplet Transform — Nishant Kumar"
-    />
-    <meta
-      property="og:description"
-      content="Real-time non-stationary signal decomposition using an adaptive chirplet dictionary, accelerated via a hybrid CPU-GPU pipeline."
-    />
-    <meta property="og:type" content="article" />
-    <meta
-      property="og:url"
-      content="https://www.kumar-nishant.com/research/chirplet-transform"
-    />
-    <!-- Schema.org JSON-LD for Academic / Technical Indexing -->
-    <script type="application/ld+json">
+<meta content="Residual-based adaptive chirplet decomposition with hybrid CPU–GPU acceleration and measured EEG benchmarks." name="description"/>
+<meta content="Chirplet Transform, Adaptive Chirplet Transform, ACT, Matching Pursuit, Signal Decomposition, GPU Acceleration, EEG Analysis, CUDA, Nishant Kumar, Steve Mann" name="keywords"/>
+<meta content="GPU-Accelerated Adaptive Chirplet Transform — Nishant Kumar" property="og:title"/>
+<meta content="Residual-based adaptive chirplet decomposition with hybrid CPU–GPU acceleration and measured EEG benchmarks." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://www.kumar-nishant.com/research/chirplet-transform" property="og:url"/>
+<!-- Schema.org JSON-LD for Academic / Technical Indexing -->
+<script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ScholarlyArticle",
@@ -50,376 +35,181 @@
         "abstract": "The Adaptive Chirplet Transform decomposes a non-stationary signal into a small set of time-frequency atoms using Matching Pursuit. This project introduces a stable, GPU-accelerated framework avoiding algorithmic divergence through unit-normalized residual projections."
       }
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="project-page.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  </head>
-
-  <body>
-    <main class="project-page">
-      <a href="../index.html#research" class="back-link"
-        ><i class="fas fa-arrow-left"></i> Back to Research</a
-      >
-
-      <header class="project-header">
-        <svg
-          class="project-wave"
-          viewBox="0 0 300 40"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0,20 Q10,4 20,20 T40,20 T60,20 T80,20 T100,20 T120,20 T140,20 T160,20 T180,20 T200,20 T220,20 T240,20 T260,20 T280,20 T300,20"
-            stroke="var(--accent-coral)"
-            stroke-width="2.2"
-            fill="none"
-            opacity="0.85"
-          />
-        </svg>
-        <h1>GPU-Accelerated Adaptive Chirplet Transform (ACT)</h1>
-        <p class="project-sub">
-          Real-time non-stationary signal decomposition using an adaptive
-          chirplet dictionary, accelerated via a hybrid CPU-GPU pipeline for
-          large-scale runtime analysis.
-        </p>
-        <div class="project-links">
-          <a
-            href="https://github.com/nishantkumar201/adaptive-chirplet-transform"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-            ><i class="fab fa-github"></i> View Repository</a
-          >
-          <a
-            href="https://ieeexplore.ieee.org/document/11512436/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-            ><i class="fas fa-external-link-alt"></i> Related Publication</a
-          >
-          <a
-            href="https://arxiv.org/abs/2607.16629"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-            ><i class="fas fa-scroll"></i> arXiv Preprint</a
-          >
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&amp;family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<link href="project-page.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<main class="project-page">
+<a class="back-link" href="../index.html#research"><i class="fas fa-arrow-left"></i> Back to Research</a>
+<header class="project-header">
+<svg class="project-wave" viewbox="0 0 300 40" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,20 Q10,4 20,20 T40,20 T60,20 T80,20 T100,20 T120,20 T140,20 T160,20 T180,20 T200,20 T220,20 T240,20 T260,20 T280,20 T300,20" fill="none" opacity="0.85" stroke="var(--accent-coral)" stroke-width="2.2"></path>
+</svg>
+<h1>GPU-Accelerated Adaptive Chirplet Transform (ACT)</h1>
+<p class="project-sub">Residual-based signal decomposition with a hybrid CPU–GPU implementation, evaluated across desktop, laptop, and embedded hardware.</p>
+<div class="project-links">
+<a class="project-link" href="https://github.com/nishantkumar201/adaptive-chirplet-transform" rel="noopener noreferrer" target="_blank"><i class="fab fa-github"></i> View Repository</a>
+<a class="project-link" href="https://ieeexplore.ieee.org/document/11512436/" rel="noopener noreferrer" target="_blank"><i class="fas fa-external-link-alt"></i> Related Publication</a>
+<a class="project-link" href="https://arxiv.org/abs/2607.16629" rel="noopener noreferrer" target="_blank"><i class="fas fa-scroll"></i> arXiv Preprint</a>
+</div>
+</header>
+<section class="project-body">
+<p>This recorded example decomposes two seconds of EEG (512 samples at 256 Hz) from channel HB_1 in the Bitbrain sleep dataset. Each step adds a chirplet to the approximation. After 12 chirplets, the residual norm is 4.28% of the original signal norm, corresponding to about 0.18% residual energy. Playback illustrates precomputed results; it does not measure processing latency.</p>
+</section>
+<section class="anim-wrap" id="chirplet-anim">
+<div class="anim-loading" id="anim-loading">
+<i class="fas fa-spinner fa-spin"></i> Loading animation…
         </div>
-      </header>
-
-      <section class="project-body">
-        <p>
-          The animation below shows a real decomposition on 2 seconds of EEG
-          (512 samples at 256&nbsp;Hz) from channel 1, one of two frontal
-          electrodes, of Patient&nbsp;1 in the Bitbrain sleep EEG dataset. Watch
-          the approximation build up and the residual shrink as each chirplet is
-          added; by the final chirplet, residual energy drops to about 4% of the
-          original signal. Full technical breakdown below the animation.
-        </p>
-      </section>
-
-      <section class="anim-wrap" id="chirplet-anim">
-        <div id="anim-loading" class="anim-loading">
-          <i class="fas fa-spinner fa-spin"></i> Loading animation&hellip;
-        </div>
-
-        <div id="anim-body" style="display: none">
-          <div class="metric-row">
-            <div class="metric">
-              <div class="mlabel">Chirplet</div>
-              <div class="mval" id="m-step">—</div>
-            </div>
-            <div class="metric">
-              <div class="mlabel">Energy explained</div>
-              <div class="mval" id="m-explained">—</div>
-            </div>
-            <div class="metric">
-              <div class="mlabel">Norm residue</div>
-              <div class="mval" id="m-norm">—</div>
-            </div>
-          </div>
-
-          <div class="progress-bar-wrap">
-            <div class="progress-bar-fill" id="prog"></div>
-          </div>
-
-          <div class="legend">
-            <span
-              ><span class="legend-dot" style="background: #378add"></span
-              >Original signal</span
-            >
-            <span
-              ><span class="legend-dot" style="background: #1d9e75"></span
-              >Approximation so far</span
-            >
-            <span
-              ><span class="legend-dot" style="background: #c0a900"></span
-              >Current chirplet</span
-            >
-            <span
-              ><span
-                class="legend-dot"
-                style="background: #d85a30; border: 1px dashed #d85a30"
-              ></span
-              >Residual</span
-            >
-          </div>
-
-          <div class="chart-row">
-            <div class="chart-label">Signal decomposition</div>
-            <div style="position: relative; width: 100%; height: 240px">
-              <canvas id="c-main"></canvas>
-            </div>
-            <p class="chart-caption">
+<div id="anim-body" style="display: none">
+<div class="metric-row">
+<div class="metric">
+<div class="mlabel">Chirplet</div>
+<div class="mval" id="m-step">—</div>
+</div>
+<div class="metric">
+<div class="mlabel">Energy explained</div>
+<div class="mval" id="m-explained">—</div>
+</div>
+<div class="metric">
+<div class="mlabel">Residual norm ratio</div>
+<div class="mval" id="m-norm">—</div>
+</div>
+</div>
+<div class="progress-bar-wrap">
+<div class="progress-bar-fill" id="prog"></div>
+</div>
+<div class="legend">
+<span><span class="legend-dot" style="background: #378add"></span>Original signal</span>
+<span><span class="legend-dot" style="background: #1d9e75"></span>Approximation so far</span>
+<span><span class="legend-dot" style="background: #c0a900"></span>Current chirplet</span>
+<span><span class="legend-dot" style="background: #d85a30; border: 1px dashed #d85a30"></span>Residual</span>
+</div>
+<div class="chart-row">
+<div class="chart-label">Signal decomposition</div>
+<div style="position: relative; width: 100%; height: 240px">
+<canvas aria-label="EEG reconstruction and residual versus time" id="c-main"></canvas>
+</div>
+<p class="chart-caption">
               EEG channel 1 (frontal), Patient 1, Bitbrain sleep dataset, 512
-              samples at 256&nbsp;Hz (2s epoch).
+              samples at 256 Hz (2s epoch).
             </p>
-          </div>
-
-          <div class="chart-row">
-            <div class="chart-label">Residual energy over iterations</div>
-            <div style="position: relative; width: 100%; height: 140px">
-              <canvas id="c-norm"></canvas>
-            </div>
-            <p class="chart-caption">
-              Normalized residual energy after each chirplet is subtracted from
-              the signal.
-            </p>
-          </div>
-
-          <div class="controls">
-            <button id="btn-play"><i class="fas fa-play"></i> Play</button>
-            <input type="range" min="0" max="0" value="0" id="scrubber" />
-            <span id="step-label">—</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="howto">
-        <h2>How It Works</h2>
-
-        <h3>The Problem</h3>
-        <p>
-          The Adaptive Chirplet Transform decomposes a non-stationary signal
-          into a small set of time&ndash;frequency atoms, each fit greedily via
-          matching pursuit to explain as much of the remaining signal energy as
-          possible. It has been applied to EEG, EMG, and radar signals, but two
-          issues have historically blocked real deployment:
-        </p>
-        <ol>
-          <li>
-            <strong>Algorithmic instability.</strong> The per-step search for
+</div>
+<div class="chart-row">
+<div class="chart-label">Residual energy over iterations</div>
+<div style="position: relative; width: 100%; height: 140px">
+<canvas aria-label="Residual energy fraction versus chirplet iteration" id="c-norm"></canvas>
+</div>
+<p class="chart-caption">Residual energy fraction = sum of squared residual samples / sum of squared original signal samples. The norm ratio is its square root.</p>
+</div>
+<div class="controls">
+<button id="btn-play"><i class="fas fa-play"></i> Play</button>
+<input aria-label="Chirplet iteration" id="scrubber" max="0" min="0" type="range" value="0"/>
+<span id="step-label">—</span>
+</div>
+</div>
+</section>
+<section class="howto">
+<h2>How It Works</h2>
+<h3>The Problem</h3>
+<p>The Adaptive Chirplet Transform represents a non-stationary signal using a small set of time–frequency atoms. This work addresses divergent behavior in a prior implementation and the cost of searching a high-dimensional chirplet parameter space.</p>
+<ol>
+<li>
+<strong>Algorithmic instability.</strong> The per-step search for
             the best-fit chirplet happens over a high-dimensional, non-convex
             parameter space. Without careful numerical treatment, the
             decomposition can diverge, and later steps make the residual
             <em>worse</em>, not better.
           </li>
-          <li>
-            <strong>Computational cost.</strong> Searching that parameter space
-            naively is too slow for real-time use, ruling out on-device and
-            wearable applications where speed is a hard constraint.
+<li>
+<strong>Computational cost.</strong> Dictionary search and generation can limit throughput, particularly as signal length, grid resolution, or channel count increases.
           </li>
-        </ol>
-
-        <h3>The Approach</h3>
-        <p>
-          <strong>Math: unit-normalized, residual-based projection.</strong>
-          The core change is aligning the per-step projection strictly with
-          Matching Pursuit theory by normalizing the chirplet basis at each
-          iteration and projecting against the true residual, rather than a
-          looser approximation of it. This eliminates divergence and
-          substantially reduces residual error, and the effect holds across
-          signal domains, not just EEG.
-        </p>
-        <p>
-          <strong>Architecture: hybrid CPU&ndash;GPU pipeline.</strong>
-          Chirplet generation (constructing candidate atoms from the parameter
-          space) runs on the CPU. The search over those candidates, which is the
-          expensive part, is parallelized on the GPU. Splitting the work this
-          way removes the bottlenecks of doing either step alone: CPU-only
-          search is too slow; GPU-only generation doesn't parallelize well.
-        </p>
-
-        <div class="arch-wrap">
-          <div class="chart-label">Pipeline architecture</div>
-          <svg
-            class="arch-diagram"
-            viewBox="0 0 720 210"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <marker
-                id="arch-arrowhead"
-                markerWidth="8"
-                markerHeight="8"
-                refX="6"
-                refY="3"
-                orient="auto"
-              >
-                <path d="M0,0 L6,3 L0,6 Z" fill="var(--text-muted)" />
-              </marker>
-            </defs>
-
-            <rect
-              x="8"
-              y="82"
-              width="128"
-              height="52"
-              rx="8"
-              class="arch-box"
-            />
-            <text x="72" y="103" text-anchor="middle" class="arch-label">
+</ol>
+<h3>The Approach</h3>
+<p><strong>Unit normalization and residual projection.</strong> Candidate atoms are normalized to unit L2 norm and projected onto the current residual. Subtracting the corresponding projection gives a non-increasing residual norm in exact arithmetic. The paper compares this implementation with the earlier method on EEG, EMG, and radar signals.</p>
+<p><strong>Hybrid CPU–GPU implementation.</strong> The CPU constructs the chirplet dictionary; the GPU performs batched projection and residual updates. Continuous parameter refinement uses BFGS. In the tested implementations, GPU-only dictionary generation added substantial overhead, so the hybrid design retains CPU generation and reuses the dictionary across epochs.</p>
+<div class="arch-wrap">
+<div class="chart-label">Pipeline architecture</div>
+<svg class="arch-diagram" viewbox="0 0 720 210" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="arch-arrowhead" markerheight="8" markerwidth="8" orient="auto" refx="6" refy="3">
+<path d="M0,0 L6,3 L0,6 Z" fill="var(--text-muted)"></path>
+</marker>
+</defs>
+<rect class="arch-box" height="52" rx="8" width="128" x="8" y="82"></rect>
+<text class="arch-label" text-anchor="middle" x="72" y="103">
               EEG Epoch
             </text>
-            <text x="72" y="119" text-anchor="middle" class="arch-sublabel">
+<text class="arch-sublabel" text-anchor="middle" x="72" y="119">
               512 samples, 256 Hz
             </text>
-
-            <line x1="136" y1="108" x2="184" y2="108" class="arch-arrow" />
-
-            <rect
-              x="188"
-              y="82"
-              width="150"
-              height="52"
-              rx="8"
-              class="arch-box"
-            />
-            <text
-              x="20"
-              y="0"
-              class="arch-tag"
-              transform="translate(263,72)"
-              text-anchor="middle"
-            >
+<line class="arch-arrow" x1="136" x2="184" y1="108" y2="108"></line>
+<rect class="arch-box" height="52" rx="8" width="150" x="188" y="82"></rect>
+<text class="arch-tag" text-anchor="middle" transform="translate(263,72)" x="20" y="0">
               CPU
             </text>
-            <text x="263" y="105" text-anchor="middle" class="arch-label">
-              Candidate Generation
-            </text>
-            <text x="263" y="121" text-anchor="middle" class="arch-sublabel">
+<text class="arch-label" text-anchor="middle" x="263" y="105">Dictionary (cached)</text>
+<text class="arch-sublabel" text-anchor="middle" x="263" y="121">
               chirplet dictionary
             </text>
-
-            <path d="M338,108 L364,108 L364,56 L386,56" class="arch-arrow" />
-
-            <rect
-              x="390"
-              y="30"
-              width="180"
-              height="52"
-              rx="8"
-              class="arch-box-accent"
-            />
-            <text
-              class="arch-tag"
-              transform="translate(480,20)"
-              text-anchor="middle"
-            >
+<path class="arch-arrow" d="M338,108 L364,108 L364,56 L386,56"></path>
+<rect class="arch-box-accent" height="52" rx="8" width="180" x="390" y="30"></rect>
+<text class="arch-tag" text-anchor="middle" transform="translate(480,20)">
               GPU
             </text>
-            <text x="480" y="53" text-anchor="middle" class="arch-label">
+<text class="arch-label" text-anchor="middle" x="480" y="53">
               Parallel Search
             </text>
-            <text x="480" y="69" text-anchor="middle" class="arch-sublabel">
+<text class="arch-sublabel" text-anchor="middle" x="480" y="69">
               unit-normalized projection
             </text>
-
-            <line x1="570" y1="56" x2="606" y2="56" class="arch-arrow" />
-
-            <rect
-              x="610"
-              y="30"
-              width="102"
-              height="52"
-              rx="8"
-              class="arch-box"
-            />
-            <text x="661" y="53" text-anchor="middle" class="arch-label">
+<line class="arch-arrow" x1="570" x2="606" y1="56" y2="56"></line>
+<rect class="arch-box" height="52" rx="8" width="102" x="610" y="30"></rect>
+<text class="arch-label" text-anchor="middle" x="661" y="53">
               Atom k
             </text>
-            <text x="661" y="69" text-anchor="middle" class="arch-sublabel">
+<text class="arch-sublabel" text-anchor="middle" x="661" y="69">
               best-fit chirplet
             </text>
-
-            <rect
-              x="390"
-              y="128"
-              width="180"
-              height="52"
-              rx="8"
-              class="arch-box"
-            />
-            <text x="480" y="151" text-anchor="middle" class="arch-label">
+<rect class="arch-box" height="52" rx="8" width="180" x="390" y="128"></rect>
+<text class="arch-label" text-anchor="middle" x="480" y="151">
               Residual Update
             </text>
-            <text x="480" y="167" text-anchor="middle" class="arch-sublabel">
-              subtract atom from signal
+<text class="arch-sublabel" text-anchor="middle" x="480" y="167">subtract weighted atom</text>
+<path class="arch-arrow" d="M480,82 L480,124"></path>
+<path class="arch-arrow" d="M390,154 L365,154 L365,56 L386,56" fill="none"></path>
+<text class="arch-sublabel" text-anchor="middle" x="320" y="177">
+              loop ×12
             </text>
-
-            <path d="M480,82 L480,124" class="arch-arrow" />
-            <path
-              d="M390,154 L263,154 L263,138"
-              class="arch-arrow"
-              fill="none"
-            />
-            <text x="330" y="147" text-anchor="middle" class="arch-sublabel">
-              loop &times;12
-            </text>
-          </svg>
-          <p class="chart-caption">
-            Chirplet generation runs on the CPU; the expensive parallel search
-            over candidates runs on the GPU. Each iteration's residual feeds
-            back into the next candidate search.
-          </p>
-        </div>
-
-        <h3>Seeing It Work</h3>
-        <p>
-          On the real EEG epoch animated above, the decomposition converges
-          cleanly: after 1 chirplet, roughly 43% of signal energy remains
-          unexplained; after 12 chirplets, that residual drops to about 4.3%.
-          Each added chirplet explains a diminishing but consistent share of
-          what's left of the signal, no divergence, no wasted steps.
-        </p>
-
-        <h3>Status & Citation</h3>
-        <p>
+</svg>
+<p class="chart-caption">The dictionary is generated on the CPU and reused. Each updated residual feeds back into the GPU projection search; continuous parameter refinement is omitted from this simplified diagram.</p>
+</div>
+<h3>Measured Runtime</h3><p>Table IV of the paper reports three-second EEG epochs, decomposition order 10, on an RTX 5070 with an Intel i9-14900K and 64 GB RAM. Results are mean ± standard deviation across five runs, with 50 evaluated epochs per run and an initial warm-up epoch excluded.</p><div class="benchmark-wrap"><table><thead><tr><th>Implementation</th><th>Time per epoch</th><th>Overall run</th></tr></thead><tbody><tr><td>CPU</td><td>0.166 ± 0.023 s</td><td>15.342 ± 0.238 s</td></tr><tr><td>CuPy hybrid</td><td>0.025 ± 0.005 s</td><td>8.372 ± 0.120 s</td></tr><tr><td>PyTorch hybrid</td><td>0.022 ± 0.005 s</td><td>7.952 ± 0.016 s</td></tr></tbody></table></div><p>Overall runtime includes dictionary generation and epoch processing. Per-epoch acceleration is approximately 6.6–7.5× using the rounded table values; the overall run is about 1.9× faster. Separate multi-channel experiments report a speedup rising from 3.94× at one channel to 8.22× at ten channels. These results describe the tested workloads, rather than a universal speedup.</p><h3>Seeing It Work</h3>
+<p>For this example, the residual norm ratio decreases from 0.430 after the first chirplet to 0.0428 after the twelfth. Squaring these ratios gives residual energy fractions of 18.5% and 0.18%, respectively. This example illustrates reconstruction behavior; the benchmarks below quantify runtime separately.</p>
+<h3>Status &amp; Citation</h3>
+<p>
           Under review at IEEE Open Journal of Signal Processing (submitted July
           2026). Full derivation, benchmarks, and multi-channel scalability
-          results are in the paper &mdash; N. Kumar, S. Mann,
-          <a
-            href="https://arxiv.org/abs/2607.16629"
-            target="_blank"
-            rel="noopener noreferrer"
-            >&ldquo;Toward a Stable and Deployable Adaptive Chirplet Transform:
+          results are in the paper — N. Kumar, S. Mann,
+          <a href="https://arxiv.org/abs/2607.16629" rel="noopener noreferrer" target="_blank">“Toward a Stable and Deployable Adaptive Chirplet Transform:
             Residual Projection, Hybrid GPU Acceleration, and Multi-Channel
-            Scalability&rdquo;</a
-          >, arXiv:2607.16629, 2026.
+            Scalability”</a>, arXiv:2607.16629, 2026.
         </p>
-
-        <div class="citation-block">
-          <h4><i class="fas fa-quote-left"></i> BibTeX Citation</h4>
-          <pre><code>@article{kumar2026chirplet,
+<div class="citation-block">
+<h4><i class="fas fa-quote-left"></i> BibTeX Citation</h4>
+<pre><code>@article{kumar2026chirplet,
   title={Toward a Stable and Deployable Adaptive Chirplet Transform: Residual Projection, Hybrid GPU Acceleration, and Multi-Channel Scalability},
   author={Kumar, Nishant and Mann, Steve},
   journal={arXiv preprint arXiv:2607.16629},
   year={2026}
 }</code></pre>
-        </div>
-      </section>
-    </main>
-
-    <script src="chirplet-animation.js"></script>
-  </body>
+</div>
+</section>
+</main>
+<script src="chirplet-animation.js"></script>
+</body>
 </html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MuseCroc: Embedded EEG Acquisition — Nishant Kumar</title>
+<meta name="description" content="MuseCroc: collaborative ESP32-based EEG acquisition from Muse headbands, with local recording and optional ESP-NOW communication. Architecture, contributions, and thesis experiments.">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="project-page.css">
+<style>
+.muse-page .project-sub,.muse-page .project-body p { max-width:100%; }
+.muse-page .project-header { margin-bottom:28px; }
+.muse-page .project-links { gap:20px; }
+.muse-page .system-figure { margin:24px 0 36px; }
+.muse-page .system-figure img { display:block; width:100%; max-width:680px; height:auto; margin:auto; }
+.muse-page .system-figure figcaption { text-align:center; color:var(--text-muted); font-size:.8rem; margin-top:10px; }
+.muse-page .detail-block { margin:0; padding:26px 0; border-top:1px solid var(--border); }
+.muse-page h2 { font-family:"Fraunces",serif; font-size:1.45rem; text-transform:none; letter-spacing:0; margin-bottom:16px; }
+.muse-page h2::after { display:none; }
+.muse-page h3 { font-size:1rem; margin:22px 0 8px; }
+.muse-page p { margin-bottom:14px; }
+.muse-page .role-note { padding:22px; background:var(--card-bg); border-left:3px solid var(--primary); border-radius:8px; }
+.muse-page .role-note p:last-child { margin-bottom:0; }
+.muse-page .table-wrap { overflow-x:auto; }
+.muse-page table { width:100%; border-collapse:collapse; font-size:.9rem; margin:16px 0; }
+.muse-page th,.muse-page td { text-align:left; vertical-align:top; padding:12px; border-bottom:1px solid var(--border); }
+.muse-page th { background:var(--card-bg); }
+.muse-page .source-note { font-size:.84rem; color:var(--text-muted); }
+</style>
+</head>
+<body>
+<main class="project-page muse-page">
+<a href="../index.html#research" class="back-link">← Back to Research</a>
+<header class="project-header">
+<div class="hero-eyebrow">Embedded Systems · EEG Acquisition</div>
+<h1>MuseCroc: Embedded EEG Acquisition</h1>
+<p class="project-sub">Direct acquisition of EEG and motion data from Muse headbands using an ESP32-based module, with local recording and optional wireless communication between devices.</p>
+<div class="project-links">
+<a class="project-link" href="https://utoronto.scholaris.ca/server/api/core/bitstreams/165e4b4b-3a17-4fa3-960f-5639c36b2070/content" target="_blank" rel="noopener noreferrer">Read the MASc thesis</a>
+<a class="project-link" href="https://ieeexplore.ieee.org/abstract/document/11099439" target="_blank" rel="noopener noreferrer">Related conference paper</a>
+</div>
+</header>
+<figure class="system-figure">
+<img src="../assets/musecroc-system.svg" width="600" height="420" alt="Muse headband sends EEG and motion data over Bluetooth LE to an ESP32 module, with local SD recording and optional ESP-NOW communication to a receiving node.">
+<figcaption>Conceptual architecture. Device shapes are schematic.</figcaption>
+</figure>
+<section class="detail-block project-body" aria-labelledby="motivation">
+<h2 id="motivation">Why MuseCroc?</h2>
+<p>Consumer EEG headbands provide accessible sensing hardware, but collecting raw data can involve phone applications and additional software running on a computer. MuseCroc connects to the headband directly over Bluetooth Low Energy, moving acquisition and recording into an external embedded module.</p>
+<p>The work investigates a portable acquisition pipeline for experiments involving movement and multiple users. The module communicates with the existing headband; it does not replace its sensing electronics.</p>
+</section>
+<section class="detail-block project-body" aria-labelledby="contribution">
+<h2 id="contribution">My Contribution</h2>
+<div class="role-note">
+<p>This was collaborative work. My contribution included system integration and acquisition architecture, experimental protocols, and minor firmware contributions. I also supported embedded troubleshooting and data review, and contributed to documentation and visualization.</p>
+<p>Aydin Hosseingholizadeh made foundational technical contributions to the implementation. The system-level description below covers the collaborative platform, rather than attributing every firmware component to my individual work.</p>
+</div>
+</section>
+<section class="detail-block project-body" aria-labelledby="architecture">
+<h2 id="architecture">How the System Works</h2>
+<h3>Headband connection and sample reconstruction</h3>
+<p>The ESP32 discovers compatible Muse headbands, establishes a BLE connection, and subscribes to sensor notifications. Incoming packets are decoded into EEG samples and motion measurements. Reconstructing all samples contained in each notification is essential: the headband’s nominal sampling frequency alone does not establish the effective recording rate.</p>
+<h3>Acquisition and storage</h3>
+<p>The updated architecture uses ESP-IDF and the NimBLE Bluetooth stack. FreeRTOS tasks separate connection management and acquisition from storage and communication, with buffering between stages to reduce blocking in the acquisition path. Local SD recording provides a way to retain measurements without relying on a continuous connection to a computer.</p>
+<h3>Optional multi-device communication</h3>
+<p>ESP-NOW provides a separate link between acquisition nodes and a central receiving ESP32, referred to in the thesis as the Meta-MuseCroc. The documented experiments use a many-to-one arrangement. Timestamps and delivery callbacks support examination of data-transfer timing; this should not be interpreted as a demonstrated guarantee of precise synchronization across every device.</p>
+</section>
+<section class="detail-block project-body" aria-labelledby="development">
+<h2 id="development">From Proof of Concept to Updated Acquisition</h2>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Stage</th><th scope="col">What changed</th></tr></thead>
+<tbody>
+<tr><th scope="row">Initial proof of concept</th><td>Direct headband connection, SD recording and ESP-NOW communication were demonstrated. Incomplete BLE sample reconstruction limited the effective usable EEG rate to approximately 21 Hz.</td></tr>
+<tr><th scope="row">Updated architecture</th><td>Refined decoding and buffering restored the full 256 Hz EEG stream reported in the thesis. The firmware moved to ESP-IDF with NimBLE and more explicit task and connection management.</td></tr>
+</tbody></table></div>
+<p>These stages are kept separate because the outdoor recordings were obtained with the earlier implementation. They do not, by themselves, validate the later 256 Hz pipeline.</p>
+</section>
+<section class="detail-block project-body" aria-labelledby="experiments">
+<h2 id="experiments">Experiments and What They Show</h2>
+<h3>Outdoor acquisition with two participants</h3>
+<p>In the proof-of-concept study, two participants wore independent Muse S–MuseCroc systems during an approximately five-minute outdoor walking trial. Measurements were logged locally and transmitted to a central receiver. The thesis reports stable BLE connections during the trial and successful recording and transmission.</p>
+<p>This demonstration supports mobile acquisition feasibility for the tested setup. Its approximately 21 Hz effective recording rate limits the conclusions that can be drawn about higher-frequency EEG content.</p>
+<h3>Jaw-clenching protocol with the updated system</h3>
+<p>The updated system was assessed using an approximately ten-second relaxed baseline followed by six jaw-clench events, separated by relaxation intervals of approximately two seconds. Recorded large-amplitude transients corresponded to the clench events and were distinguishable from the resting baseline.</p>
+<p>This is a preliminary check of acquisition behavior using a muscle-artifact response visible in the EEG recording. It is not a clinical validation of EEG interpretation or an assessment of diagnostic performance.</p>
+</section>
+<section class="detail-block project-body" aria-labelledby="sources">
+<h2 id="sources">Publications and Further Reading</h2>
+<p><strong>MASc thesis:</strong> <em>Embedded EEG Acquisition and Accelerated Adaptive Chirplet Transform for Scalable Signal Analysis</em>, Nishant Kumar, University of Toronto, 2026. Chapter 3 describes the architecture, development stages and experiments; Section 3.0.1 discusses individual contributions.</p>
+<p><strong>Related paper:</strong> A. Hosseingholizadeh, N. Kumar and S. Mann, <em>Portable EEG-Based Data Acquisition and Multi-Sensor Integration Using the Muse S Headband</em>, IEEE ICCAD, 2025.</p>
+<p class="source-note">This page summarizes the thesis work. The thesis and conference paper describe different stages of development; consult the relevant source for implementation and experimental details.</p>
+</section>
+</main>
+</body>
+</html>
