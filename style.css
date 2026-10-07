@@ -497,19 +497,13 @@ h2 svg .wave-path.in-view {
   justify-content: space-between;
 }
 
-/* PROJECTS — richer cards with thumbnail */
+/* PROJECTS */
+
 .project-grid {
   display: grid;
-  /* FIX: auto-fill reserved space for phantom empty columns when only one
-     card exists, leaving a large awkward gutter on wide screens.
-     auto-fit + justify-content:start collapses that space and left-aligns
-     the real cards; behavior converges to the same grid once more cards
-     are added. Capped max track width so cards don't stretch too wide
-     when there's only one or two. */
-  grid-template-columns: repeat(auto-fit, minmax(230px, 340px));
-  justify-content: start;
-  gap: 16px;
-  max-width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 760px;
 }
 
 .project-card {
@@ -517,35 +511,68 @@ h2 svg .wave-path.in-view {
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid transparent;
+
+  display: flex;
+  flex-direction: column;
+
   transition:
     border-color 0.2s,
     transform 0.2s;
 }
+
 .project-card:hover {
   border-color: var(--accent-coral);
   transform: translateY(-3px);
 }
+
+/* Shared thumbnail area */
 .project-thumb {
-  height: 88px;
+  height: 170px;
+  flex-shrink: 0;
+
   background: linear-gradient(
     135deg,
     rgba(193, 80, 46, 0.16),
     rgba(160, 112, 0, 0.1)
   );
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+/* Drone SVG */
 .project-thumb svg {
   width: 68%;
   height: 58%;
 }
+
+/* Screenshot thumbnails */
+.project-thumb-image {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  overflow: hidden;
+}
+
+.project-thumb-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .project-body {
   padding: 16px 18px 18px;
+
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  /* lets both cards stay equal-height */
+  flex: 1;
 }
+
 .project-card h3 {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.85rem;
@@ -553,16 +580,19 @@ h2 svg .wave-path.in-view {
   color: var(--text);
   line-height: 1.3;
 }
+
 .project-card p {
   font-size: 0.8rem;
   color: var(--text-muted);
   line-height: 1.55;
 }
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
+
 .tag {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.63rem;
@@ -574,10 +604,12 @@ h2 svg .wave-path.in-view {
   border-radius: 20px;
   border: 1px solid var(--border);
 }
+
 .tag-status {
   color: var(--primary);
   border-color: var(--primary);
 }
+
 .tag-status.tag-done {
   color: var(--green);
   border-color: var(--green);
@@ -587,19 +619,26 @@ h2 svg .wave-path.in-view {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-top: 2px;
+
+  /* keeps repository links aligned along the bottom */
+  margin-top: auto;
+  padding-top: 4px;
 }
+
 .project-link {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--primary);
   text-decoration: none;
+
   transition: color 0.15s;
 }
+
 .project-link:hover {
   color: var(--accent-coral);
 }
@@ -732,49 +771,170 @@ footer {
 }
 
 /* Refined portfolio layout */
-.main-content { max-width: 1160px; padding-inline: clamp(24px, 4vw, 48px); }
-.main-content section { padding-top: 30px; padding-bottom: 24px; }
-.hero { padding-top: 44px; }
-.hero-name { font-size: clamp(1.9rem, 3.2vw, 2.65rem); line-height: 1.18; max-width: 100%; }
-.about-text, .hero-tagline, .section-intro { max-width: 100%; }
-.hero-tagline { font-family: "IBM Plex Sans", sans-serif; }
-.research-card { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: center; padding: 26px; }
-.research-copy { min-width: 0; }
-.research-card .research-tags { font-size: .62rem; line-height: 1.7; }
-.research-card p { max-width: 100%; }
-.act-preview { display: block; min-width: 0; text-decoration: none; color: var(--text-muted); }
-.act-preview svg { display: block; width: 100%; background: var(--bg); border-radius: 8px; }
-.act-preview span { display: block; font-size: .76rem; line-height: 1.5; margin-top: 10px; }
-.act-preview:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
-.project-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
-.eeg-card { grid-column: auto; border-top: 3px solid var(--primary); }
-.project-card { min-width: 0; }
-.project-card .project-body { padding: 22px; }
-.project-card .project-body h3 { font-family: "Fraunces", serif; font-size: 1.15rem; line-height: 1.35; }
-.project-card .project-body p { font-size: .9rem; line-height: 1.65; }
-.project-thumb { height: 72px; }
+.main-content {
+  max-width: 1160px;
+  padding-inline: clamp(24px, 4vw, 48px);
+}
+.main-content section {
+  padding-top: 30px;
+  padding-bottom: 24px;
+}
+.hero {
+  padding-top: 44px;
+}
+.hero-name {
+  font-size: clamp(1.9rem, 3.2vw, 2.65rem);
+  line-height: 1.18;
+  max-width: 100%;
+}
+.about-text,
+.hero-tagline,
+.section-intro {
+  max-width: 100%;
+}
+.hero-tagline {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+.research-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  padding: 26px;
+}
+.research-copy {
+  min-width: 0;
+}
+.research-card .research-tags {
+  font-size: 0.62rem;
+  line-height: 1.7;
+}
+.research-card p {
+  max-width: 100%;
+}
+.act-preview {
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+.act-preview svg {
+  display: block;
+  width: 100%;
+  background: var(--bg);
+  border-radius: 8px;
+}
+.act-preview span {
+  display: block;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+.act-preview:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 5px;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.eeg-card {
+  grid-column: auto;
+  border-top: 3px solid var(--primary);
+}
+.project-card {
+  min-width: 0;
+}
+.project-card .project-body {
+  padding: 22px;
+}
+.project-card .project-body h3 {
+  font-family: "Fraunces", serif;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+.project-card .project-body p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.project-thumb {
+  height: 72px;
+}
 @media (max-width: 1000px) {
- .research-card { grid-template-columns: 1fr; gap: 20px; }
- .act-preview { max-width: 520px; }
+  .research-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .act-preview {
+    max-width: 520px;
+  }
 }
 @media (max-width: 760px) {
- .project-grid { grid-template-columns: 1fr; }
- .research-card { padding: 22px; }
- .main-content { padding-inline: 24px; }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .research-card {
+    padding: 22px;
+  }
+  .main-content {
+    padding-inline: 24px;
+  }
 }
 
 /* Text follows the full width of its containing column. */
-.about-text, .hero-tagline, .section-intro, .research-copy p, .project-body p { width: 100%; max-width: 100%; }
+.about-text,
+.hero-tagline,
+.section-intro,
+.research-copy p,
+.project-body p {
+  width: 100%;
+  max-width: 100%;
+}
 
 /* Research and independent engineering work */
-.muse-research-card { margin-top: 22px; border-left-color: var(--primary); }
-.muse-research-card .research-copy { padding: 0; }
-.muse-research-card .project-links-row { flex-wrap: wrap; gap: 14px; }
-.muse-concept { margin: 0; min-width: 0; background: var(--bg); border-radius: 8px; padding: 12px; }
-.muse-concept svg { width: 100%; display: block; }
-.muse-concept figcaption { font-size: .72rem; color: var(--text-muted); text-align: center; margin-top: 4px; }
-#projects .project-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
-#projects .project-card { max-width: 360px; }
+.muse-research-card {
+  margin-top: 22px;
+  border-left-color: var(--primary);
+}
+.muse-research-card .research-copy {
+  padding: 0;
+}
+.muse-research-card .project-links-row {
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.muse-concept {
+  margin: 0;
+  min-width: 0;
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 12px;
+}
+.muse-concept svg {
+  width: 100%;
+  display: block;
+}
+.muse-concept figcaption {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 4px;
+}
+#projects .project-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+#projects .project-card {
+  max-width: 360px;
+}
 
-.muse-concept { padding: 0; background: transparent; }
-.muse-concept img { display: block; width: 100%; height: auto; }
+.muse-concept {
+  padding: 0;
+  background: transparent;
+}
+.muse-concept img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
