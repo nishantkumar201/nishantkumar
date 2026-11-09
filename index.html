@@ -3,10 +3,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+
     <meta
       name="description"
       content="Nishant Kumar is a Biomedical Engineering PhD student at the University of Toronto researching wearable assistive systems, biomedical signal processing, and embedded computing."
     />
+
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
     <link
@@ -16,6 +18,7 @@
     />
 
     <title>Nishant Kumar</title>
+
     <link rel="canonical" href="https://kumar-nishant.com/" />
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -33,11 +36,62 @@
     />
 
     <link href="style.css" rel="stylesheet" />
+
+    <!-- Compact research result previews: intentionally scoped to the homepage. -->
+    <style>
+      .research-highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin: 1.05rem 0 1rem;
+      }
+      .research-highlight {
+        flex: 1 1 135px;
+        min-width: 0;
+        padding: 0.8rem 0.95rem;
+        border: 1px solid rgba(26, 60, 90, 0.16);
+        border-radius: 9px;
+        background: rgba(26, 60, 90, 0.045);
+      }
+      .research-highlight-value {
+        display: block;
+        color: var(--primary, #1a3c5a);
+        font-family: "Fraunces", Georgia, serif;
+        font-size: clamp(1.35rem, 2vw, 1.65rem);
+        font-weight: 600;
+        line-height: 1.2;
+      }
+      .research-highlight-label {
+        display: block;
+        margin-top: 0.3rem;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 0.77rem;
+        line-height: 1.45;
+      }
+      .research-highlight-note {
+        margin: -0.2rem 0 1rem;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        opacity: 0.75;
+      }
+      .research-link-detail {
+        display: inline-block;
+        max-width: 100%;
+        line-height: 1.5;
+        text-wrap: pretty;
+      }
+      @media (max-width: 420px) {
+        .research-highlight {
+          flex-basis: 100%;
+        }
+      }
+    </style>
   </head>
 
   <body>
     <div class="site-wrapper">
-      <!-- Sidebar -->
+      *<!-- Sidebar -->*
+
       <aside class="sidebar">
         <img alt="NK Logo" class="sidebar-logo" src="Logo.png" />
 
@@ -65,9 +119,12 @@
 
         <div class="sidebar-footer">© 2026 Nishant Kumar</div>
       </aside>
-      <!-- Main Content -->
+
+      *<!-- Main Content -->*
+
       <main class="main-content">
-        <!-- Hero -->
+        *<!-- Hero -->*
+
         <div class="hero">
           <div class="hero-eyebrow">Biomedical Engineering</div>
 
@@ -79,7 +136,9 @@
             embedded computing, and rehabilitation technology.
           </p>
         </div>
-        <!-- About -->
+
+        *<!-- About -->*
+
         <section id="about">
           <h2>
             <svg viewbox="0 0 64 20">
@@ -105,7 +164,9 @@
             </p>
           </div>
         </section>
-        <!-- Research -->
+
+        *<!-- Research -->*
+
         <section id="research">
           <h2>
             <svg viewbox="0 0 64 20">
@@ -141,8 +202,32 @@
                 memory use.
               </p>
 
+              <div
+                class="research-highlights"
+                aria-label="Adaptive Chirplet Transform benchmark highlights"
+              >
+                <div class="research-highlight">
+                  <span class="research-highlight-value">7.5×</span>
+                  <span class="research-highlight-label"
+                    >Per-epoch acceleration, PyTorch hybrid vs. CPU</span
+                  >
+                </div>
+                <div class="research-highlight">
+                  <span class="research-highlight-value">1.9×</span>
+                  <span class="research-highlight-label"
+                    >Overall runtime speedup</span
+                  >
+                </div>
+              </div>
+              <p class="research-highlight-note">
+                Results from the documented benchmark setup; see the research
+                page for methods and hardware details.
+              </p>
+
               <a class="research-link" href="research/chirplet-transform.html">
-                See the chirplet transform in action
+                <span class="research-link-detail"
+                  >Interactive Demo · Methods · Benchmarks</span
+                >
 
                 <i class="fas fa-arrow-right"></i>
               </a>
@@ -217,7 +302,9 @@
               <span> EEG reconstruction after four chirplets. </span>
             </a>
           </div>
-          <!-- End ACT research card -->
+
+          *<!-- End ACT research card -->*
+
           <article class="research-card muse-research-card">
             <div class="research-copy">
               <div class="research-tags">
@@ -240,9 +327,33 @@
                 foundational implementation contributions.
               </p>
 
+              <div
+                class="research-highlights"
+                aria-label="MuseCroc system highlights"
+              >
+                <div class="research-highlight">
+                  <span class="research-highlight-value">256 Hz</span>
+                  <span class="research-highlight-label"
+                    >EEG stream reconstructed in the updated system</span
+                  >
+                </div>
+                <div class="research-highlight">
+                  <span class="research-highlight-value">ESP32</span>
+                  <span class="research-highlight-label"
+                    >BLE acquisition with local SD recording</span
+                  >
+                </div>
+              </div>
+              <p class="research-highlight-note">
+                Collaborative system result; the research page documents
+                individual contributions and experimental limitations.
+              </p>
+
               <div class="project-links-row">
                 <a class="project-link" href="research/musecroc.html">
-                  Explore MuseCroc →
+                  <span class="research-link-detail"
+                    >System Architecture · Experiments · Thesis →</span
+                  >
                 </a>
               </div>
             </div>
@@ -258,7 +369,9 @@
             </figure>
           </article>
         </section>
-        <!-- Publications -->
+
+        *<!-- Publications -->*
+
         <section id="publications">
           <h2>
             <svg viewbox="0 0 64 20">
@@ -510,7 +623,9 @@
             </li>
           </ul>
         </section>
-        <!-- Projects -->
+
+        *<!-- Projects -->*
+
         <section id="projects">
           <h2>
             <svg viewbox="0 0 64 20">
@@ -675,20 +790,27 @@
                   onerror="this.style.display = 'none'"
                 />
               </div>
+
               <div class="project-body">
                 <h3>KnightShift</h3>
+
                 <p>
                   A chess move-validation engine built from scratch in C,
                   implementing piece movement, turn validation, and king-safety
                   checks. Intended as the software foundation for a future
                   physical smart chessboard.
                 </p>
+
                 <div class="tag-list">
                   <span class="tag tag-status">In Progress</span>
+
                   <span class="tag">C</span>
+
                   <span class="tag">Game Logic</span>
+
                   <span class="tag">Embedded Systems</span>
                 </div>
+
                 <div class="project-links-row">
                   <a
                     href="https://github.com/nishantkumar201/knightshift"
@@ -703,7 +825,9 @@
             </div>
           </div>
         </section>
-        <!-- Awards -->
+
+        *<!-- Awards -->*
+
         <section id="awards">
           <h2>
             <svg viewbox="0 0 64 20">
@@ -742,7 +866,9 @@
             </div>
           </div>
         </section>
-        <!-- Contact -->
+
+        *<!-- Contact -->*
+
         <section id="contact">
           <h2>
             <svg viewbox="0 0 64 20">
@@ -804,9 +930,13 @@
         </section>
       </main>
     </div>
-    <!-- /.site-wrapper --><!-- Footer (hidden — copyright in sidebar) -->
+
+    *<!-- /.site-wrapper --><!-- Footer (hidden — copyright in sidebar) -->*
+
     <footer><p>© 2026 Nishant Kumar</p></footer>
-    <!-- Email Obfuscation + Active Nav + Wave Animations -->
+
+    *<!-- Email Obfuscation + Active Nav + Wave Animations -->*
+
     <script>
       const parts = [
         "nishant",
